@@ -1214,6 +1214,166 @@
             transform: translateY(-2px);
             box-shadow: var(--shadow-lg);
         }
+
+        /* Project Modal */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            z-index: 9998;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2.5rem;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: var(--shadow-lg);
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: transparent;
+            border: none;
+            color: var(--text-dim);
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.2s;
+        }
+
+        .modal-close:hover {
+            background: var(--accent-light);
+            color: var(--accent);
+        }
+
+        .modal-header {
+            margin-bottom: 1.5rem;
+            padding-right: 2rem;
+        }
+
+        .modal-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .modal-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal-company {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .modal-period {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+
+        .modal-badges {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-body {
+            margin-bottom: 2rem;
+        }
+
+        .modal-description {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .modal-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.25rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .modal-link.live {
+            background: var(--accent);
+            color: #ffffff;
+        }
+
+        .modal-link.live:hover {
+            background: var(--accent-dark);
+            transform: translateX(3px);
+        }
+
+        .modal-link.github {
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+
+        .modal-link.github:hover {
+            background: var(--accent);
+            color: #ffffff;
+            transform: translateX(3px);
+        }
+
+        .project-card {
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                padding: 2rem;
+                max-height: 95vh;
+            }
+
+            .modal-title {
+                font-size: 1.5rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1501,7 +1661,6 @@
                                 <span class="skill-tag">Functional Testing</span>
                                 <span class="skill-tag">Regression Testing</span>
                                 <span class="skill-tag">Bug Reporting</span>
-                                <span class="skill-tag">SDLC</span>
                                 <span class="skill-tag">Web Application Testing</span>
                                 <span class="skill-tag">Dev-to-Prod Pipeline</span>
                                 <span class="skill-tag">Cross-browser Testing</span>
@@ -1512,25 +1671,19 @@
                         </div>
 
                         <div class="skills-group">
-                            <h3>Tools & Software</h3>
+                            <h3>Tools & Workflow</h3>
                             <div class="skills-tags">
                                 <span class="skill-tag">Microsoft Office</span>
                                 <span class="skill-tag">Google Sheets</span>
-                                <span class="skill-tag">Canva</span>
-                                <span class="skill-tag">CapCut</span>
                                 <span class="skill-tag">Google Workspace</span>
-                            </div>
-                        </div>
-
-                        <div class="skills-group">
-                            <h3>Dev Tools & Workflow</h3>
-                            <div class="skills-tags">
                                 <span class="skill-tag">Git</span>
                                 <span class="skill-tag">GitHub</span>
                                 <span class="skill-tag">Browser DevTools</span>
                                 <span class="skill-tag">Chrome DevTools</span>
                                 <span class="skill-tag">Trello</span>
                                 <span class="skill-tag">Notion</span>
+                                <span class="skill-tag">Jira</span>
+                                <span class="skill-tag">Postman</span>
                             </div>
                         </div>
                     </div>
@@ -1697,6 +1850,30 @@
         </svg>
     </button>
 
+    <!-- Project Modal -->
+    <div class="modal-overlay" id="projectModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose" aria-label="Close modal">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle"></h3>
+                <div class="modal-meta">
+                    <div class="modal-company" id="modalCompany"></div>
+                    <div class="modal-period" id="modalPeriod"></div>
+                </div>
+                <div class="modal-badges" id="modalBadges"></div>
+            </div>
+            <div class="modal-body">
+                <p class="modal-description" id="modalDescription"></p>
+            </div>
+            <div class="modal-footer" id="modalFooter"></div>
+        </div>
+    </div>
+
     <script>
         // Scroll progress bar
         const scrollProgress = document.getElementById('scroll-progress');
@@ -1847,6 +2024,123 @@
 
         backToTop.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Project Modal
+        const projectData = {
+            'ERM System': {
+                title: 'ERM System',
+                company: 'CV Gemilang Inti Teknologi',
+                period: 'May 2025 - Present',
+                badges: ['qa', 'build'],
+                description: 'Enterprise Resource Management system used for internal business operations. I tested two active versions simultaneously, the revamp version and the legacy production build, running functional and regression tests on each release to make sure both versions stayed stable.',
+                link: 'https://erm.gemilangteknologi.com/',
+                linkText: 'View Live',
+                linkType: 'live'
+            },
+            'CRM System': {
+                title: 'CRM System',
+                company: 'CV Gemilang Inti Teknologi',
+                period: 'May 2025 - Present',
+                badges: ['qa', 'dev', 'build'],
+                description: 'Customer Relationship Management platform for managing client data and interactions. Beyond regular QA testing, I also handled minor fixes directly on the live system and contributed to parts of the build process alongside the dev team.',
+                link: 'https://crms.gemilangteknologi.com/',
+                linkText: 'View Live',
+                linkType: 'live'
+            },
+            'Document Management System': {
+                title: 'Document Management System',
+                company: 'CV Gemilang Inti Teknologi',
+                period: 'May 2025 - Present',
+                badges: ['dev', 'build'],
+                description: 'Web-based system for managing and storing documents. I was involved from early stages, contributing to the build process and some parts of the code. Source is available on GitHub.',
+                link: 'https://github.com/Syefdi/Document_Management_System',
+                linkText: 'View on GitHub',
+                linkType: 'github'
+            },
+            'HRIS / Attendance System': {
+                title: 'HRIS / Attendance System',
+                company: 'CV Gemilang Inti Teknologi',
+                period: 'May 2025 - Present',
+                badges: ['qa', 'dev'],
+                description: 'Web-based attendance application for employee management. I joined during early development and did functional testing as features were being built, helping catch issues before the first production deployment.',
+                link: 'https://absensi.intipowerabadi.com/',
+                linkText: 'View Live',
+                linkType: 'live'
+            }
+        };
+
+        const modal = document.getElementById('projectModal');
+        const modalClose = document.getElementById('modalClose');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        function openModal(projectTitle) {
+            const data = projectData[projectTitle];
+            if (!data) return;
+
+            // Set modal content
+            document.getElementById('modalTitle').textContent = data.title;
+            document.getElementById('modalCompany').textContent = data.company;
+            document.getElementById('modalPeriod').textContent = data.period;
+            document.getElementById('modalDescription').textContent = data.description;
+
+            // Set badges
+            const badgesContainer = document.getElementById('modalBadges');
+            badgesContainer.innerHTML = '';
+            data.badges.forEach(badge => {
+                const span = document.createElement('span');
+                span.className = `project-badge ${badge}`;
+                span.textContent = badge.toUpperCase();
+                badgesContainer.appendChild(span);
+            });
+
+            // Set link
+            const footerContainer = document.getElementById('modalFooter');
+            footerContainer.innerHTML = `
+                <a href="${data.link}" class="modal-link ${data.linkType}" target="_blank" rel="noopener noreferrer">
+                    <span>${data.linkText}</span>
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+                        <polyline points="15 3 21 3 21 9"/>
+                        <line x1="10" y1="14" x2="21" y2="3"/>
+                    </svg>
+                </a>
+            `;
+
+            // Show modal
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Add click handlers to project cards
+        projectCards.forEach(card => {
+            card.addEventListener('click', (e) => {
+                // Don't open modal if clicking on a link
+                if (e.target.closest('a')) return;
+                
+                const title = card.querySelector('h3').textContent;
+                openModal(title);
+            });
+        });
+
+        // Close modal handlers
+        modalClose.addEventListener('click', closeModal);
+        
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
         });
 
         // Initial calls
