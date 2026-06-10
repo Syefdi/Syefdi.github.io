@@ -455,21 +455,18 @@
             margin-bottom: 2.5rem;
         }
 
-        .photo-placeholder {
+        .profile-photo img {
             width: 88px;
             height: 88px;
             border-radius: 50%;
-            background: var(--accent-light);
-            border: 2px dashed rgba(14, 165, 233, 0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent);
-            transition: border-color 0.3s;
+            border: 3px solid var(--accent);
+            object-fit: cover;
+            transition: all 0.3s ease;
         }
 
-        .photo-placeholder:hover {
-            border-color: var(--accent);
+        .profile-photo img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 0 4px var(--accent-light);
         }
 
         .hero-greeting {
@@ -1579,12 +1576,7 @@
                 <!-- About Section -->
                 <section id="about">
                     <div class="profile-photo">
-                        <div class="photo-placeholder">
-                            <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                                <circle cx="12" cy="7" r="4"/>
-                            </svg>
-                        </div>
+                        <img src="assets/images/SyefdiSyaban-IMG.jpg" alt="Syefdi Fasmawi Syaban">
                     </div>
                     <h1 class="hero-greeting">Hi, I'm Syefdi.</h1>
                     <p class="hero-subtitle">QA Tester based in South Jakarta.</p>

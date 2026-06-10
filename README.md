@@ -2,7 +2,7 @@
 
 Personal portfolio website showcasing my work as a Junior QA Tester and developer. Built with vanilla HTML, CSS, and JavaScript - no frameworks, just clean and performant code.
 
-**Live Site**: [syefdi.github.io](https://syefdi.github.io) *(update with your actual URL)*
+**Live Site**: [syefdi.github.io](https://syefdi.github.io) 
 
 ## About Me
 
@@ -43,7 +43,7 @@ portfolio/
 │   ├── documents/
 │   │   └── resume.pdf           # Downloadable resume
 │   └── images/
-│       └── Screenshot 2026-06-08 194934.png  # Portfolio preview
+│       └── SyefdiSyaban-IMG.png # Profile Picture
 ├── scripts/
 │   └── generate_cv.py           # CV generation utility
 ├── index.html                   # Main HTML file (all-in-one)
@@ -192,6 +192,6 @@ Feel free to use this as inspiration or a template for your own portfolio. If yo
 
 ---
 
-**Built with ❤️ by Syefdi Fasmawi Syaban**
+**Built by Syefdi Fasmawi Syaban**
 
-Last updated: January 2026
+Last updated: June 2026
