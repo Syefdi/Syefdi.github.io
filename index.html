@@ -26,6 +26,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     
+    <!-- Devicons for technology icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    
     <!-- FOUC Prevention: Theme Initialization -->
     <script>
         (function() {
@@ -836,6 +839,53 @@
             gap: 0.75rem;
         }
 
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 0.5rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            transition: all 0.2s ease;
+            cursor: default;
+        }
+
+        .skill-item:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .skill-item i {
+            font-size: 2rem;
+        }
+
+        .skill-item span {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            text-align: center;
+            font-family: 'Fira Code', monospace;
+            line-height: 1.3;
+        }
+
+        /* Dark mode: GitHub and Notion icons need color invert */
+        [data-theme="dark"] .devicon-github-original {
+            filter: invert(1);
+        }
+
+        [data-theme="dark"] .devicon-notion-plain {
+            filter: invert(1);
+        }
+
         .skill-tag {
             padding: 0.5rem 1rem;
             background: var(--accent-light);
@@ -1476,7 +1526,7 @@
                         <li><a href="#contact" class="nav-link">Contact</a></li>
                     </ul>
                 </nav>
-                <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="resume-btn">
+                <a href="assets/documents/resume.pdf" target="_blank" rel="noopener noreferrer" class="resume-btn">
                     <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
                         <polyline points="7 10 12 15 17 10"/>
@@ -1718,18 +1768,47 @@
 
                         <div class="skills-group">
                             <h3>Tools & Workflow</h3>
-                            <div class="skills-tags">
-                                <span class="skill-tag">Microsoft Office</span>
-                                <span class="skill-tag">Google Sheets</span>
-                                <span class="skill-tag">Google Workspace</span>
-                                <span class="skill-tag">Git</span>
-                                <span class="skill-tag">GitHub</span>
-                                <span class="skill-tag">Browser DevTools</span>
-                                <span class="skill-tag">Chrome DevTools</span>
-                                <span class="skill-tag">Trello</span>
-                                <span class="skill-tag">Notion</span>
-                                <span class="skill-tag">Jira</span>
-                                <span class="skill-tag">Postman</span>
+                            <div class="skills-grid">
+                                <div class="skill-item">
+                                    <i class="devicon-git-plain colored"></i>
+                                    <span>Git</span>
+                                </div>
+                                <div class="skill-item">
+                                    <i class="devicon-github-original"></i>
+                                    <span>GitHub</span>
+                                </div>
+                                <div class="skill-item">
+                                    <i class="devicon-vscode-plain colored"></i>
+                                    <span>VS Code</span>
+                                </div>
+                                <div class="skill-item">
+                                    <i class="devicon-google-plain colored"></i>
+                                    <span>Google Workspace</span>
+                                </div>
+                                <div class="skill-item">
+                                    <i class="devicon-trello-plain colored"></i>
+                                    <span>Trello</span>
+                                </div>
+                                <div class="skill-item">
+                                    <i class="devicon-notion-plain"></i>
+                                    <span>Notion</span>
+                                </div>
+                                <div class="skill-item">
+                                    <i class="devicon-jira-plain colored"></i>
+                                    <span>Jira</span>
+                                </div>
+                                <div class="skill-item">
+                                    <i class="devicon-postman-plain colored"></i>
+                                    <span>Postman</span>
+                                </div>
+                                <div class="skill-item">
+                                    <i class="devicon-windows8-original colored"></i>
+                                    <span>Microsoft Office</span>
+                                </div>
+                                <div class="skill-item">
+                                    <i class="devicon-chrome-plain colored"></i>
+                                    <span>Chrome DevTools</span>
+                                </div>
                             </div>
                         </div>
                     </div>

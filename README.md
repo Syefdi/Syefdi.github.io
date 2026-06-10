@@ -39,10 +39,15 @@ I'm a 19-year-old QA Tester based in South Jakarta, currently working at CV Gemi
 
 ```
 portfolio/
-├── index.html              # Main HTML file (all-in-one)
-├── resume.pdf              # Downloadable resume
-├── README.md               # This file
-└── Screenshot.png          # Portfolio preview image
+├── assets/
+│   ├── documents/
+│   │   └── resume.pdf           # Downloadable resume
+│   └── images/
+│       └── Screenshot 2026-06-08 194934.png  # Portfolio preview
+├── scripts/
+│   └── generate_cv.py           # CV generation utility
+├── index.html                   # Main HTML file (all-in-one)
+└── README.md                    # This file
 ```
 
 ## Technologies Used
@@ -154,7 +159,7 @@ Want to use this as a template? Here's what to change:
 4. Update GitHub username (search for `Syefdi`)
 
 ### Resume
-Replace `resume.pdf` with your own resume file.
+Replace `assets/documents/resume.pdf` with your own resume file.
 
 ### Colors
 Modify CSS custom properties in `:root` (lines 33-49) and `[data-theme="dark"]` (lines 51-67).
