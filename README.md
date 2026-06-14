@@ -1,197 +1,192 @@
-# Portfolio Website - Syefdi Fasmawi Syaban
+# Personal Portfolio
 
-Personal portfolio website showcasing my work as a Junior QA Tester and developer. Built with vanilla HTML, CSS, and JavaScript - no frameworks, just clean and performant code.
-
-**Live Site**: [syefdi.github.io](https://syefdi.github.io) 
-
-## About Me
-
-I'm a 19-year-old QA Tester based in South Jakarta, currently working at CV Gemilang Inti Teknologi while studying Informatics Engineering at Universitas Pamulang on weekends. My work involves testing enterprise web systems, writing detailed bug reports, and occasionally contributing to development work.
+Modern, responsive portfolio website showcasing my work as a Junior QA Tester and my journey in software development. Features both a visual portfolio and terminal-style interface.
 
 ## Features
 
-### Core Sections
-- **About**: Brief introduction, education history, and current learning focus
-- **Experience**: Detailed work history with quantifiable achievements
-- **Projects**: 5 enterprise projects I've worked on, with interactive modals for detailed information
-- **Skills**: Technical skills organized by Testing & QA, and Tools & Workflow
-- **Certifications**: Courses and credentials from Dicoding and AWS
-- **Contact**: Multiple ways to reach me
-
-### UI/UX Features
-- **Dark/Light Theme Toggle**: Persistent theme preference with smooth transitions
-- **Project Modals**: Click any project card to see detailed information in a modal
-- **Smooth Animations**: Hover effects on cards, scroll animations, fade-in sections
-- **Back to Top Button**: Appears after scrolling 300px
-- **Responsive Design**: Mobile-first approach with hamburger menu for small screens
-- **Cursor Spotlight Effect**: Subtle radial gradient follows cursor on desktop
-- **Scroll Progress Bar**: Visual indicator at top of page
-
-### Technical Implementation
-- **No Framework Dependencies**: Pure HTML, CSS, JavaScript
-- **Theme System**: CSS custom properties with localStorage persistence
-- **Intersection Observer**: For scroll-triggered animations
-- **Modal System**: Reusable modal component for project details
-- **SEO Optimized**: Meta tags for search engines and social sharing
-- **Accessible**: Semantic HTML, ARIA labels, keyboard navigation support
+- Clean, modern design with dark/light theme support
+- Responsive layout for all devices
+- Terminal mode for a command-line experience
+- Smooth animations and transitions
+- SEO optimized with Open Graph tags
+- Fast loading with optimized assets
 
 ## Project Structure
 
 ```
-portfolio/
+1portfolio/
+├── index.html              # Main portfolio page (clean, modular)
+├── terminal.html           # Terminal-style portfolio interface
+├── css/
+│   ├── main.css           # Main stylesheet (1410 lines)
+│   └── terminal.css       # Terminal-specific styles
+├── js/
+│   ├── main.js            # Main JavaScript (2258 lines)
+│   └── terminal.js        # Terminal functionality
 ├── assets/
-│   ├── documents/
-│   │   └── resume.pdf           # Downloadable resume
-│   └── images/
-│       └── SyefdiSyaban-IMG.png # Profile Picture
+│   ├── documents/         # Resume and other documents
+│   └── images/            # Profile photos and images
 ├── scripts/
-│   └── generate_cv.py           # CV generation utility
-├── index.html                   # Main HTML file (all-in-one)
-└── README.md                    # This file
+│   ├── refactor.py        # Build script for extracting CSS/JS
+│   ├── build_new_index.py # Script to rebuild clean HTML
+│   └── generate_cv.py     # CV generation utility
+└── README.md
 ```
 
-## Technologies Used
+## Tech Stack
 
-- **HTML5**: Semantic markup
-- **CSS3**: Custom properties, grid, flexbox, animations
-- **JavaScript (ES6+)**: Intersection Observer, localStorage, DOM manipulation
-- **Fonts**: Plus Jakarta Sans (body), Fira Code (monospace)
-
-## Color Scheme
-
-### Light Mode
-- Background: `#fafafa`
-- Card Background: `#ffffff`
-- Primary Text: `#0f172a`
-- Accent: `#0ea5e9`
-
-### Dark Mode
-- Background: `#0f172a`
-- Card Background: `#1e293b`
-- Primary Text: `#f1f5f9`
-- Accent: `#38bdf8`
-
-## Key Design Decisions
-
-### Why No Framework?
-This portfolio intentionally uses vanilla JavaScript to demonstrate:
-- Understanding of web fundamentals
-- Ability to write clean, performant code without dependencies
-- Knowledge of modern browser APIs
-- Performance optimization (no bundle overhead)
-
-### Single HTML File
-The entire website is contained in one HTML file with embedded CSS and JavaScript:
-- **Pros**: Simple deployment, no build process, fast initial load
-- **Cons**: Harder to maintain at scale (not an issue for a portfolio)
-
-### Theme Inspiration
-Design inspired by [brittanychiang.com](https://brittanychiang.com) - clean, minimal, developer-focused aesthetic.
+- **HTML5** - Semantic markup
+- **CSS3** - Modern styling with CSS variables
+- **Vanilla JavaScript** - No frameworks, pure JS
+- **Google Fonts** - Plus Jakarta Sans & Fira Code
+- **Devicons** - Technology icons
 
 ## Local Development
 
-1. Clone the repository:
-```bash
-git clone https://github.com/Syefdi/Syefdi.github.io.git
-cd Syefdi.github.io
-```
+1. Clone the repository
+2. Open `index.html` in a browser
+3. No build process required - pure HTML/CSS/JS
 
-2. Open with a local server (to avoid CORS issues):
-```bash
-# Python 3
-python -m http.server 8000
+For the terminal mode:
+- Open `terminal.html` directly, or
+- Click the "Terminal" button in the main portfolio
 
-# Python 2
-python -m SimpleHTTPServer 8000
+## Theme System
 
-# Node.js (if you have http-server installed)
-npx http-server
+The portfolio supports automatic dark/light theme switching based on system preferences, with manual toggle available. Theme preference is saved to localStorage.
 
-# VS Code Live Server
-# Install "Live Server" extension and click "Go Live"
-```
+**Theme CSS Variables:**
+- `--bg-primary`, `--bg-secondary`, `--bg-card`
+- `--accent`, `--accent-light`, `--accent-dark`
+- `--text-primary`, `--text-secondary`, `--text-dim`
+- `--border`, `--shadow-sm`, `--shadow-md`, `--shadow-lg`
 
-3. Visit `http://localhost:8000` in your browser
+## Terminal Mode
+
+Interactive terminal interface with command-line navigation:
+
+**Available Commands:**
+- `whoami` - Who is Syefdi
+- `about` - Background and current status
+- `skills` - Technical skills and tools
+- `experience` - Work experience
+- `education` - Education background
+- `projects` - Personal and work projects
+- `certifications` - Courses and credentials
+- `contact` - Contact information
+- `cv` - Download resume
+- `clear` - Clear terminal
+- `help` - Show help message
+
+**Easter Eggs:**
+- `secret` - Hidden message
+- `sudo` - Permission denied
+- `rm -rf /` - Nice try
+- `matrix` - Matrix rain effect
+- `quote` - Random dev quotes
+
+**Features:**
+- Tab autocomplete for commands
+- Command history with arrow keys
+- Typing animation (25ms per character)
+- Queue system for concurrent commands
+- Blinking cursor that follows input
+
+## Sections
+
+### About
+Personal introduction, current status, and education background. Includes profile photo and availability status.
+
+### Experience
+Timeline of work experience at CV Gemilang Inti Teknologi with detailed responsibilities and achievements.
+
+### Projects
+Showcase of 6 projects with role badges (QA, Dev, Build), descriptions, and live links:
+1. ERM System
+2. CRM System
+3. Document Management System
+4. HRIS / Attendance System
+5. PD System
+6. Bug Report Management Tool
+
+### Skills
+Grouped skills display:
+- Testing & QA methodologies
+- Tools & Workflow (with icons)
+- Currently Learning tags
+
+### Certifications
+List of completed courses from Dicoding and AWS with verification links.
+
+### Contact
+Multiple contact methods with hover effects and direct links.
+
+## Responsive Design
+
+- **Desktop (>1024px)**: Fixed sidebar with navigation
+- **Tablet (768px-1024px)**: Adjusted spacing and font sizes
+- **Mobile (<768px)**: Hamburger menu, stacked layout
+
+## Performance Optimizations
+
+- CSS and JS separated into external files
+- Font preconnect for faster loading
+- Lazy loading for images
+- Minimal external dependencies
+- FOUC prevention with inline theme script
 
 ## Deployment
 
-This portfolio is deployed on GitHub Pages:
+### GitHub Pages
+1. Push to GitHub repository
+2. Enable GitHub Pages in Settings
+3. Select branch and root directory
+4. Access via `username.github.io`
 
-1. Push changes to main branch
-2. GitHub Pages automatically deploys from main branch
-3. Site is live at `https://syefdi.github.io`
-
-No build process required - just push and deploy.
+### Custom Domain
+1. Add CNAME file with your domain
+2. Configure DNS A records to GitHub IPs
+3. Enable HTTPS in repository settings
 
 ## Browser Support
 
-- Chrome/Edge (last 2 versions)
-- Firefox (last 2 versions)
-- Safari (last 2 versions)
-- Mobile browsers (iOS Safari, Chrome Android)
+- Chrome/Edge (latest)
+- Firefox (latest)
+- Safari (latest)
+- Mobile browsers (iOS Safari, Chrome Mobile)
 
-**Note**: Uses modern CSS features like CSS Grid, Custom Properties, and Intersection Observer. No IE11 support.
+## Maintenance
 
-## Performance
+### Adding New Projects
+Edit `index.html`, add project card in the Projects section with appropriate badges.
 
-- **Lighthouse Score**: 95+ (Performance, Accessibility, Best Practices, SEO)
-- **No external dependencies**: Zero npm packages
-- **Inline CSS/JS**: No separate file requests
-- **Optimized fonts**: Google Fonts with preconnect
-- **Lazy-loaded sections**: Intersection Observer for scroll animations
+### Updating Certifications
+Add new cert-card in the Certifications section with verification link.
 
-## Customization Guide
+### Modifying Styles
+Edit `css/main.css` - all styles use CSS variables for easy theming.
 
-Want to use this as a template? Here's what to change:
+### Terminal Commands
+Edit `terminal.js` - add new commands to the `commands` object.
 
-### Personal Information
-1. Update meta tags in `<head>` (lines 5-22)
-2. Change name, tagline, and availability in sidebar (lines 1257-1263)
-3. Update about section text (lines 1528-1534)
-4. Modify education cards (lines 1536-1560)
-5. Replace experience bullet points (lines 1584-1589)
-6. Update project cards and modal data (lines 1611-1695, 2044-2099)
+## File Size Stats
 
-### Contact Information
-1. Update email links (search for `syefdifasmawi@gmail.com`)
-2. Change WhatsApp number (search for `6282123439121`)
-3. Update LinkedIn URL (search for `syefdi-fasmawi-syaban`)
-4. Update GitHub username (search for `Syefdi`)
+- **index.html**: 587 lines (down from 2295 lines - 74% reduction!)
+- **css/main.css**: 1410 lines
+- **js/main.js**: 2258 lines
+- **Total**: ~4,255 lines (well-structured and modular)
 
-### Resume
-Replace `assets/documents/resume.pdf` with your own resume file.
+## Backups
 
-### Colors
-Modify CSS custom properties in `:root` (lines 33-49) and `[data-theme="dark"]` (lines 51-67).
-
-## Known Issues
-
-None currently. If you find a bug, please open an issue.
-
-## Future Enhancements
-
-Potential features to add:
-- [ ] Blog section for writing about QA and testing
-- [ ] Animations with more polish
-- [ ] More project case studies with detailed breakdowns
-- [ ] Testimonials section
-- [ ] Download resume button analytics
+Original monolithic index.html is backed up as `index.html.backup` for reference.
 
 ## License
 
-This project is open source and available under the [MIT License](LICENSE).
-
-Feel free to use this as inspiration or a template for your own portfolio. If you do use it, a link back to this repo would be appreciated but is not required.
+Personal portfolio project. Feel free to use as inspiration for your own portfolio.
 
 ## Contact
 
-- **Email**: syefdifasmawi@gmail.com
-- **LinkedIn**: [linkedin.com/in/syefdi-fasmawi-syaban](https://www.linkedin.com/in/syefdi-fasmawi-syaban-6b6531337/)
-- **GitHub**: [github.com/Syefdi](https://github.com/Syefdi)
-- **WhatsApp**: +62 821-2343-9121
-
----
-
-**Built by Syefdi Fasmawi Syaban**
-
-Last updated: June 2026
+- Email: syefdifasmawi@gmail.com
+- GitHub: github.com/Syefdi
+- LinkedIn: linkedin.com/in/syefdi-fasmawi-syaban-6b6531337
+- Portfolio: syefdi.github.io
