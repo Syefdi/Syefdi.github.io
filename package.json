@@ -1,0 +1,15 @@
+{
+  "name": "1portfolio",
+  "version": "1.0.0",
+  "description": "Personal portfolio website showcasing my work as a Junior QA Tester and developer. Built with vanilla HTML, CSS, and JavaScript - no frameworks, just clean and performant code.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.60.0"
+  }
+}

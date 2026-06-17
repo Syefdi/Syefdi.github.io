@@ -1,0 +1,302 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-16T00:00:00Z",
+  "title": "Design System: Syefdi Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "sky-blue": {
+        "role": "primary",
+        "displayName": "Sky Blue",
+        "canonical": "oklch(68% 0.17 230)",
+        "tonalRamp": [
+          "oklch(20% 0.17 230)",
+          "oklch(35% 0.17 230)",
+          "oklch(50% 0.17 230)",
+          "oklch(68% 0.17 230)",
+          "oklch(80% 0.12 230)",
+          "oklch(88% 0.08 230)",
+          "oklch(94% 0.04 230)",
+          "oklch(98% 0.01 230)"
+        ]
+      },
+      "purple-accent": {
+        "role": "secondary",
+        "displayName": "Purple Accent",
+        "canonical": "oklch(65% 0.19 290)",
+        "tonalRamp": [
+          "oklch(20% 0.19 290)",
+          "oklch(35% 0.19 290)",
+          "oklch(50% 0.19 290)",
+          "oklch(65% 0.19 290)",
+          "oklch(78% 0.15 290)",
+          "oklch(88% 0.10 290)",
+          "oklch(94% 0.05 290)",
+          "oklch(98% 0.01 290)"
+        ]
+      },
+      "amber-accent": {
+        "role": "tertiary",
+        "displayName": "Amber Accent",
+        "canonical": "oklch(70% 0.15 70)",
+        "tonalRamp": [
+          "oklch(25% 0.15 70)",
+          "oklch(40% 0.15 70)",
+          "oklch(55% 0.15 70)",
+          "oklch(70% 0.15 70)",
+          "oklch(82% 0.10 70)",
+          "oklch(90% 0.06 70)",
+          "oklch(95% 0.03 70)",
+          "oklch(98% 0.01 70)"
+        ]
+      },
+      "neutral-bg-light": {
+        "role": "neutral",
+        "displayName": "Neutral Background Light",
+        "canonical": "oklch(98% 0 0)",
+        "tonalRamp": []
+      },
+      "neutral-surface-light": {
+        "role": "neutral",
+        "displayName": "Neutral Surface Light",
+        "canonical": "oklch(100% 0 0)",
+        "tonalRamp": []
+      },
+      "neutral-text-dark": {
+        "role": "neutral",
+        "displayName": "Neutral Text Dark",
+        "canonical": "oklch(15% 0 0)",
+        "tonalRamp": []
+      },
+      "neutral-bg-dark": {
+        "role": "neutral",
+        "displayName": "Neutral Background Dark",
+        "canonical": "oklch(15% 0 0)",
+        "tonalRamp": []
+      },
+      "neutral-surface-dark": {
+        "role": "neutral",
+        "displayName": "Neutral Surface Dark",
+        "canonical": "oklch(20% 0 0)",
+        "tonalRamp": []
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero greeting only. Large, confident, capped to avoid shouting."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles throughout the portfolio."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card headings for projects, companies, certifications."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Paragraph text throughout. Comfortable reading with 1.7 line-height."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Section labels, metadata, badges. Fira Code monospace for technical signal."
+      }
+    },
+    "shadows": [
+      {
+        "name": "shadow-sm",
+        "value": "0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)",
+        "purpose": "Cards and containers at rest. Barely perceptible separation."
+      },
+      {
+        "name": "shadow-md",
+        "value": "0 4px 16px rgba(0,0,0,0.08)",
+        "purpose": "Hover state for cards and interactive elements. Noticeable lift."
+      },
+      {
+        "name": "shadow-lg",
+        "value": "0 10px 40px rgba(0,0,0,0.10)",
+        "purpose": "Deep hover for project cards. Reserved for major interactive surfaces."
+      },
+      {
+        "name": "shadow-sm-dark",
+        "value": "0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2)",
+        "purpose": "Dark mode card rest state. Higher opacity for perceptible depth."
+      },
+      {
+        "name": "shadow-md-dark",
+        "value": "0 4px 16px rgba(0,0,0,0.4)",
+        "purpose": "Dark mode hover state."
+      },
+      {
+        "name": "shadow-lg-dark",
+        "value": "0 10px 40px rgba(0,0,0,0.5)",
+        "purpose": "Dark mode deep hover."
+      }
+    ],
+    "motion": [
+      {
+        "name": "transition-standard",
+        "value": "all 0.3s ease",
+        "purpose": "Default transition for most interactive elements (nav, cards, buttons)."
+      },
+      {
+        "name": "transition-fast",
+        "value": "all 0.2s ease",
+        "purpose": "Faster transition for buttons and small interactive elements."
+      },
+      {
+        "name": "transition-smooth",
+        "value": "opacity 0.5s ease, transform 0.5s ease",
+        "purpose": "Section reveal animations on scroll."
+      },
+      {
+        "name": "pulse-animation",
+        "value": "@keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.7; transform: scale(1.1); } }",
+        "purpose": "Availability status dot pulse. 2s duration, cubic-bezier(0.4, 0, 0.6, 1)."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "mobile",
+        "value": "768px",
+        "purpose": "Below this: hamburger menu, stacked layout, hide sidebar."
+      },
+      {
+        "name": "tablet",
+        "value": "1024px",
+        "purpose": "Between mobile and desktop: adjusted spacing, smaller font scales."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button (Ghost)",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Ghost button with sky blue border and text, fills on hover",
+      "html": "<button class=\"ds-btn-ghost\">Download CV</button>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.25rem; border: 1px solid #0ea5e9; border-radius: 6px; background: transparent; color: #0ea5e9; font-family: 'Fira Code', monospace; font-size: 0.8rem; font-weight: 500; cursor: pointer; transition: all 0.2s ease; } .ds-btn-ghost:hover { background: #0ea5e9; color: #ffffff; transform: translateY(-1px); }"
+    },
+    {
+      "name": "Primary Button (Filled)",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Filled sky blue button, darkens and lifts on hover",
+      "html": "<button class=\"ds-btn-primary\">Get Started</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.25rem; border: none; border-radius: 6px; background: #0ea5e9; color: #ffffff; font-family: 'Fira Code', monospace; font-size: 0.8rem; font-weight: 500; cursor: pointer; transition: all 0.2s ease; } .ds-btn-primary:hover { background: #0284c7; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }"
+    },
+    {
+      "name": "Project Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Card with badges, title, description, and link. Lifts on hover with shadow upgrade",
+      "html": "<div class=\"ds-project-card\"><div class=\"ds-badges\"><span class=\"ds-badge ds-badge-qa\">QA</span><span class=\"ds-badge ds-badge-dev\">DEV</span></div><h3 class=\"ds-card-title\">Bug Report System</h3><p class=\"ds-card-text\">Full-stack bug tracking tool with authentication, file attachments, and export functionality.</p><a href=\"#\" class=\"ds-card-link\">View Project →</a></div>",
+      "css": ".ds-project-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04); transition: all 0.3s ease; display: flex; flex-direction: column; } .ds-project-card:hover { transform: translateY(-4px); box-shadow: 0 10px 40px rgba(0,0,0,0.10); border-color: #0ea5e9; } .ds-badges { display: flex; gap: 0.5rem; margin-bottom: 1.25rem; flex-wrap: wrap; } .ds-badge { padding: 0.3rem 0.75rem; border-radius: 6px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; font-family: 'Fira Code', monospace; } .ds-badge-qa { background: #e0f2fe; color: #0284c7; } .ds-badge-dev { background: #ede9fe; color: #7c3aed; } .ds-card-title { font-size: 1.5rem; font-weight: 700; color: #0f172a; margin-bottom: 1rem; font-family: 'Plus Jakarta Sans', sans-serif; } .ds-card-text { color: #334155; margin-bottom: 1.5rem; line-height: 1.7; flex-grow: 1; } .ds-card-link { display: inline-flex; align-items: center; gap: 0.5rem; color: #0ea5e9; font-family: 'Fira Code', monospace; font-size: 0.875rem; font-weight: 600; text-decoration: none; transition: all 0.3s; } .ds-card-link:hover { transform: translateX(3px); }"
+    },
+    {
+      "name": "Badge (Pill)",
+      "kind": "chip",
+      "refersTo": "badge-pill",
+      "description": "Pill-shaped badge for status or category labels",
+      "html": "<span class=\"ds-pill\">Available for Work</span>",
+      "css": ".ds-pill { display: inline-flex; align-items: center; gap: 0.75rem; padding: 0.25rem 0.75rem; background: #e0f2fe; color: #0284c7; border: 1px solid rgba(14, 165, 233, 0.2); border-radius: 9999px; font-family: 'Fira Code', monospace; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; }"
+    },
+    {
+      "name": "Learning Tag",
+      "kind": "chip",
+      "refersTo": "badge-pill",
+      "description": "Amber-colored tag for currently learning items",
+      "html": "<span class=\"ds-learning-tag\">FastAPI</span>",
+      "css": ".ds-learning-tag { padding: 0.4rem 0.9rem; background: #fef3c7; color: #92400e; border: 1px solid #fde68a; border-radius: 9999px; font-family: 'Fira Code', monospace; font-size: 0.8rem; font-weight: 500; }"
+    },
+    {
+      "name": "Navigation Link",
+      "kind": "nav",
+      "refersTo": "sidebar-nav",
+      "description": "Sidebar navigation link with animated line prefix",
+      "html": "<a href=\"#about\" class=\"ds-nav-link\">About</a>",
+      "css": ".ds-nav-link { display: flex; align-items: center; gap: 0.75rem; color: #334155; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: all 0.3s; position: relative; padding-left: 48px; } .ds-nav-link::before { content: ''; position: absolute; left: 0; display: block; width: 20px; height: 2px; background: #e2e8f0; transition: all 0.3s; } .ds-nav-link:hover, .ds-nav-link.active { color: #0ea5e9; } .ds-nav-link:hover::before, .ds-nav-link.active::before { width: 40px; background: #0ea5e9; }"
+    },
+    {
+      "name": "Section Label",
+      "kind": "custom",
+      "refersTo": "label",
+      "description": "Uppercase tracked label for section headers",
+      "html": "<div class=\"ds-section-label\">About</div>",
+      "css": ".ds-section-label { font-family: 'Fira Code', monospace; font-size: 0.75rem; font-weight: 500; color: #0ea5e9; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }"
+    },
+    {
+      "name": "Timeline Dot",
+      "kind": "custom",
+      "refersTo": "timeline",
+      "description": "Timeline marker dot with ring effect",
+      "html": "<div class=\"ds-timeline-container\"><div class=\"ds-timeline-line\"></div><div class=\"ds-timeline-dot\"></div></div>",
+      "css": ".ds-timeline-container { position: relative; padding-left: 2rem; } .ds-timeline-line { position: absolute; left: 0; top: 8px; bottom: 0; width: 2px; background: #0ea5e9; } .ds-timeline-dot { position: absolute; left: -5px; top: 8px; width: 10px; height: 10px; background: #0ea5e9; border-radius: 50%; border: 2px solid #fafafa; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Terminal Precision Aesthetic",
+    "overview": "This portfolio embodies the intersection of command-line precision and Apple's restrained visual refinement. Every element serves evaluation: the fixed sidebar navigation mirrors macOS app structure, the dual interface (visual + terminal) demonstrates technical versatility, and the restrained sky blue accent against neutral grays signals professionalism without corporate blandness. The design philosophy follows Apple Human Interface Guidelines: intentional whitespace, subtle interactive feedback (cursor spotlight, smooth lift on hover), and a semantic hierarchy that guides rather than shouts.",
+    "keyCharacteristics": [
+      "Precision over decoration: every element earns its place through function",
+      "Dual-interface fluency: visual polish and terminal competency as equal expressions",
+      "Restrained color: sky blue primary, purple and amber accents, nothing more",
+      "Apple-grade interactivity: subtle hover lifts, cursor spotlight, smooth 300ms transitions",
+      "System thinking: consistent spacing scale, semantic token names, reusable component patterns"
+    ],
+    "rules": [
+      {
+        "name": "The One Voice Rule",
+        "body": "Sky blue is the only interactive color. Purple and amber exist for categorization, never for buttons or links. Their restraint preserves the primary's signal.",
+        "section": "colors"
+      },
+      {
+        "name": "The True Gray Rule",
+        "body": "Neutrals have no warm or cool tint. Technical work requires neutral judgment; tinted grays introduce unintended mood.",
+        "section": "colors"
+      },
+      {
+        "name": "The Single Family Rule",
+        "body": "One humanist sans for all display and body text. Contrast comes from weight and size, not typeface switching. Mono font (Fira Code) enters only for technical signals: timestamps, commands, code, metadata.",
+        "section": "typography"
+      },
+      {
+        "name": "The No Cramp Rule",
+        "body": "Display headings use -0.02em max letter-spacing. Anything tighter causes character collision. Humanist sans at large sizes needs breathing room.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Default Rule",
+        "body": "All surfaces are flat at rest (shadow-sm or none). Shadows strengthen only as response to hover or focus. Ambient elevation is minimal; interactive elevation is clear.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Lift-on-Hover Rule",
+        "body": "Hover states combine transform: translateY(-2px to -4px) with shadow upgrade (SM → MD, MD → LG). The physical lift reinforces clickability without needing color change.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use sky blue (#0ea5e9) as the single interactive color. Purple and amber exist only for categorization badges.",
+      "Do apply lift-on-hover (translateY -2px to -4px) combined with shadow upgrade for all interactive cards and buttons.",
+      "Do use Fira Code exclusively for metadata, timestamps, commands, status labels, and badges.",
+      "Do keep borders at 1px maximum. The only exception is focus rings (2px for visibility).",
+      "Do maintain 12px card radius and 6px button radius consistently. The 2:1 ratio is deliberate.",
+      "Do respect the spacing scale (0.5rem / 1rem / 1.5rem / 2rem / 2.5rem steps).",
+      "Do ensure both light and dark themes receive equal attention."
+    ],
+    "donts": [
+      "Don't use gradient text, gradient backgrounds, or glassmorphism as default patterns.",
+      "Don't add playful illustrations, cartoon avatars, or decorative graphics.",
+      "Don't mimic LinkedIn's generic corporate templates (stock photo hero, buzzword bios, sameness).",
+      "Don't add 3D WebGL scenes, particle systems, or scroll-jacking animations.",
+      "Don't use multiple accent colors for interactive elements.",
+      "Don't apply shadows heavier than shadow-lg.",
+      "Don't nest cards inside cards.",
+      "Don't use arbitrary z-index values (999, 9999).",
+      "Don't make the display heading larger than clamp(2.5rem, 5vw, 4rem).",
+      "Don't ignore WCAG 2.1 AA contrast requirements."
+    ]
+  }
+}

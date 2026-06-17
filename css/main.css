@@ -36,9 +36,9 @@
             --text-secondary: #cbd5e1;
             --text-dim: #64748b;
             --border: #334155;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2);
-            --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
-            --shadow-lg: 0 10px 40px rgba(0,0,0,0.5);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.3);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.5);
+            --shadow-lg: 0 10px 40px rgba(0,0,0,0.6);
             --spotlight-color: rgba(56, 189, 248, 0.08);
         }
 
@@ -256,6 +256,34 @@
         .sidebar-nav a.active::before {
             width: 40px;
             background: var(--accent);
+        }
+        
+        /* Terminal Link - Distinctive styling */
+        .terminal-nav {
+            margin-bottom: 0 !important;
+        }
+        
+        .terminal-link::before {
+            content: '>';
+            display: inline-block;
+            width: auto !important;
+            height: auto !important;
+            background: none !important;
+            font-family: 'Fira Code', monospace;
+            font-size: 1rem;
+            margin-right: 0.5rem;
+            color: var(--text-dim);
+            transition: all 0.3s;
+        }
+        
+        .terminal-link {
+            font-family: 'Fira Code', monospace !important;
+            font-size: 0.875rem !important;
+        }
+        
+        .terminal-link:hover::before {
+            color: var(--accent);
+            transform: translateX(3px);
         }
 
         .resume-btn {
@@ -496,13 +524,13 @@
             padding: 1.5rem;
             box-shadow: var(--shadow-sm);
             position: relative;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .education-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-            border-color: var(--accent);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 8px 16px rgba(0, 0, 0, 0.04);
+            border-color: rgba(14, 165, 233, 0.2);
         }
 
         .education-card .pill-label {
@@ -663,15 +691,15 @@
             border-radius: 12px;
             padding: 2rem;
             box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
         }
 
         .project-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--accent);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.06);
+            border-color: rgba(14, 165, 233, 0.3);
         }
 
         .project-badges {
@@ -873,12 +901,13 @@
             display: flex;
             align-items: flex-start;
             gap: 1.25rem;
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .cert-card:hover {
-            box-shadow: var(--shadow-md);
-            transform: translateX(4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
+            transform: translateY(-4px) scale(1.01);
+            border-color: rgba(14, 165, 233, 0.2);
         }
 
         .cert-badge {
@@ -994,29 +1023,29 @@
             border-radius: 12px;
             padding: 2rem;
             box-shadow: var(--shadow-sm);
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             text-decoration: none;
             display: block;
         }
 
         .contact-card:hover {
-            box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
+            transform: translateY(-6px) scale(1.02);
         }
 
         .contact-card.whatsapp:hover {
             border-color: #25D366;
-            box-shadow: 0 4px 16px rgba(37, 211, 102, 0.15);
+            box-shadow: 0 12px 32px rgba(37, 211, 102, 0.12), 0 4px 12px rgba(37, 211, 102, 0.08);
         }
 
         .contact-card.linkedin:hover {
             border-color: #0077b5;
-            box-shadow: 0 4px 16px rgba(0, 119, 181, 0.15);
+            box-shadow: 0 12px 32px rgba(0, 119, 181, 0.12), 0 4px 12px rgba(0, 119, 181, 0.08);
         }
 
         .contact-card.github:hover {
             border-color: #24292e;
-            box-shadow: 0 4px 16px rgba(36, 41, 46, 0.15);
+            box-shadow: 0 12px 32px rgba(36, 41, 46, 0.12), 0 4px 12px rgba(36, 41, 46, 0.08);
         }
 
         .contact-card .icon {
@@ -1409,3 +1438,35 @@
                 font-size: 1.5rem;
             }
         }
+
+/* Reduced Motion Support - Apple Accessibility Standard */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    /* Keep minimal feedback for interactions */
+    .education-card:hover,
+    .project-card:hover,
+    .cert-card:hover,
+    .contact-card:hover {
+        transform: none;
+        transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    
+    /* Disable spotlight effect */
+    body::before {
+        display: none;
+    }
+    
+    /* Keep section visibility but remove motion */
+    section {
+        opacity: 1;
+        transform: none;
+    }
+}

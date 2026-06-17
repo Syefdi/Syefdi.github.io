@@ -15,22 +15,41 @@ Modern, responsive portfolio website showcasing my work as a Junior QA Tester an
 
 ```
 1portfolio/
-├── index.html              # Main portfolio page (clean, modular)
+├── index.html              # Main portfolio page
 ├── terminal.html           # Terminal-style portfolio interface
-├── css/
-│   ├── main.css           # Main stylesheet (1410 lines)
+├── README.md               # Project documentation
+├── PRODUCT.md              # Product strategy and brand guidelines
+├── DESIGN.md               # Design system documentation
+├── .gitignore              # Git ignore rules
+│
+├── css/                    # Stylesheets
+│   ├── main.css           # Main stylesheet
 │   └── terminal.css       # Terminal-specific styles
-├── js/
-│   ├── main.js            # Main JavaScript (2258 lines)
+│
+├── js/                     # JavaScript modules
+│   ├── main.js            # Main application logic
 │   └── terminal.js        # Terminal functionality
-├── assets/
+│
+├── assets/                 # Static assets
 │   ├── documents/         # Resume and other documents
 │   └── images/            # Profile photos and images
-├── scripts/
+│
+├── tools/                  # Development and maintenance scripts
 │   ├── refactor.py        # Build script for extracting CSS/JS
 │   ├── build_new_index.py # Script to rebuild clean HTML
-│   └── generate_cv.py     # CV generation utility
-└── README.md
+│   ├── generate_cv.py     # CV generation utility
+│   └── ...                # Other utility scripts
+│
+├── .impeccable/            # Design system tooling (generated)
+│   ├── design.json        # Design tokens and component library
+│   ├── live/              # Live mode configuration
+│   └── critique/          # UX critique snapshots
+│
+├── .backups/               # Backup files (not tracked in git)
+│   └── index.html.backup  # Original monolithic version
+│
+└── node_modules/           # Dependencies (not tracked in git)
+    └── @playwright/        # Testing framework
 ```
 
 ## Tech Stack
@@ -176,9 +195,24 @@ Edit `terminal.js` - add new commands to the `commands` object.
 - **js/main.js**: 2258 lines
 - **Total**: ~4,255 lines (well-structured and modular)
 
-## Backups
+## Development Files
 
-Original monolithic index.html is backed up as `index.html.backup` for reference.
+### Tools Directory
+Contains Python scripts for maintenance and development:
+- **refactor.py**: Extract CSS/JS from inline HTML
+- **build_new_index.py**: Rebuild clean HTML structure
+- **generate_cv.py**: Generate resume in various formats
+- **clean_files.py**: Cleanup and formatting utilities
+
+### Backups Directory
+Original files stored in `.backups/` (gitignored):
+- `index.html.backup`: Original monolithic version for reference
+
+### Design System
+Portfolio uses the Impeccable design system:
+- **PRODUCT.md**: Brand strategy, anti-references, design principles
+- **DESIGN.md**: Complete visual system with color palette, typography, components
+- **.impeccable/**: Generated design tokens and critique snapshots
 
 ## License
 
