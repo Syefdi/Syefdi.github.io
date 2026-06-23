@@ -29,6 +29,9 @@
     <!-- Devicons for technology icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     
+    <!-- Phase B Differentiation Styles -->
+    <link rel="stylesheet" href="css/phase-b-additions.css">
+    
     <!-- FOUC Prevention: Theme Initialization -->
     <script>
         (function() {
@@ -947,6 +950,283 @@
             gap: 2.5rem;
         }
 
+        /* Skills Narrative Section */
+        .skills-narrative {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+
+        .section-description {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+            line-height: 1.7;
+        }
+
+        .expertise-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .expertise-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .expertise-title::before {
+            content: '';
+            width: 4px;
+            height: 1.5rem;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .expertise-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .expertise-item {
+            display: flex;
+            gap: 1.25rem;
+            align-items: flex-start;
+        }
+
+        .expertise-icon {
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            background: var(--accent-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+        }
+
+        [data-theme="dark"] .expertise-icon {
+            background: rgba(56, 189, 248, 0.1);
+        }
+
+        .expertise-content {
+            flex: 1;
+        }
+
+        .expertise-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .expertise-desc {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Testing Stack Flow */
+        .testing-stack-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .stack-flow {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .stack-stage {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            min-width: 160px;
+        }
+
+        .stage-label {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-align: center;
+        }
+
+        .stage-tools {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .tool-tag {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .tool-tag:hover {
+            border-color: var(--accent);
+            transform: translateX(3px);
+        }
+
+        .tool-tag i {
+            font-size: 1.25rem;
+        }
+
+        .tool-tag svg {
+            flex-shrink: 0;
+            color: var(--accent);
+        }
+
+        .flow-arrow {
+            color: var(--text-dim);
+            display: flex;
+            align-items: center;
+        }
+
+        .flow-arrow svg {
+            animation: pulse-arrow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-arrow {
+            0%, 100% {
+                opacity: 0.5;
+                transform: translateX(0);
+            }
+            50% {
+                opacity: 1;
+                transform: translateX(3px);
+            }
+        }
+
+        /* Work Projects Styling */
+        .work-projects {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        /* Certifications Timeline */
+        .certifications-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .certifications-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .cert-year {
+            position: relative;
+        }
+
+        .year-label {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .year-certs {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            padding-left: 2rem;
+            border-left: 3px solid var(--accent);
+        }
+
+        .premium-cert {
+            position: relative;
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--accent-light) 100%);
+            border: 2px solid var(--accent);
+        }
+
+        [data-theme="dark"] .premium-cert {
+            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(56, 189, 248, 0.05) 100%);
+        }
+
+        .premium-cert::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            right: -1px;
+            bottom: -1px;
+            border-radius: 12px;
+            padding: 2px;
+            background: linear-gradient(135deg, var(--accent), var(--purple));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .premium-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--accent);
+            color: white;
+            border-radius: 9999px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+        }
+
+        .cert-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-pill {
+            padding: 0.3rem 0.75rem;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+            border-radius: 9999px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.75rem;
+            transition: all 0.2s;
+        }
+
+        .skill-pill:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
         .skills-group h3 {
             font-size: 1.25rem;
             font-weight: 600;
@@ -1806,11 +2086,12 @@
                 <!-- Projects Section -->
                 <section id="projects">
                     <div class="section-header">
-                        <div class="section-label">Projects</div>
-                        <h2 class="section-title">Things I've Built & Tested</h2>
+                        <div class="section-label">Work Projects</div>
+                        <h2 class="section-title">Systems I've Tested & Built</h2>
+                        <p class="section-description">Enterprise web applications at CV Gemilang Inti Teknologi</p>
                     </div>
 
-                    <div class="projects-grid">
+                    <div class="projects-grid work-projects">
                         <div class="project-card">
                             <div class="project-badges">
                                 <span class="project-badge qa">QA</span>
@@ -1960,67 +2241,130 @@
                 <section id="skills">
                     <div class="section-header">
                         <div class="section-label">Skills</div>
-                        <h2 class="section-title">What I Work With</h2>
+                        <h2 class="section-title">How I Work</h2>
                     </div>
 
-                    <div class="skills-groups">
-                        <div class="skills-group">
-                            <h3>Testing & QA</h3>
-                            <div class="skills-tags">
-                                <span class="skill-tag">Functional Testing</span>
-                                <span class="skill-tag">Regression Testing</span>
-                                <span class="skill-tag">Bug Reporting</span>
-                                <span class="skill-tag">Web Application Testing</span>
-                                <span class="skill-tag">Dev-to-Prod Pipeline</span>
-                                <span class="skill-tag">Cross-browser Testing</span>
-                                <span class="skill-tag">Smoke Testing</span>
-                                <span class="skill-tag">Bug Lifecycle Management</span>
-                                <span class="skill-tag">Test Case Documentation</span>
+                    <div class="skills-narrative">
+                        <!-- Testing Expertise -->
+                        <div class="expertise-section">
+                            <h3 class="expertise-title">Testing Expertise</h3>
+                            <div class="expertise-list">
+                                <div class="expertise-item">
+                                    <div class="expertise-icon">
+                                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                        </svg>
+                                    </div>
+                                    <div class="expertise-content">
+                                        <div class="expertise-name">Functional & Regression Testing</div>
+                                        <div class="expertise-desc">6 production systems tested simultaneously across parallel development tracks, running weekly release cycles</div>
+                                    </div>
+                                </div>
+                                <div class="expertise-item">
+                                    <div class="expertise-icon">
+                                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                                        </svg>
+                                    </div>
+                                    <div class="expertise-content">
+                                        <div class="expertise-name">Cross-browser Validation</div>
+                                        <div class="expertise-desc">Chrome, Firefox, Safari, Edge testing to ensure consistent behavior across platforms</div>
+                                    </div>
+                                </div>
+                                <div class="expertise-item">
+                                    <div class="expertise-icon">
+                                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <polyline points="12 6 12 12 16 14"></polyline>
+                                        </svg>
+                                    </div>
+                                    <div class="expertise-content">
+                                        <div class="expertise-name">Bug Lifecycle Management</div>
+                                        <div class="expertise-desc">Discovery → Reproduction → Documentation → Developer handoff → Verification → Resolution tracking</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="skills-group">
-                            <h3>Tools & Workflow</h3>
-                            <div class="skills-grid">
-                                <div class="skill-item">
-                                    <i class="devicon-git-plain colored"></i>
-                                    <span>Git</span>
+                        <!-- My Testing Stack -->
+                        <div class="testing-stack-section">
+                            <h3 class="expertise-title">My Testing Stack</h3>
+                            <div class="stack-flow">
+                                <div class="stack-stage">
+                                    <div class="stage-label">Planning</div>
+                                    <div class="stage-tools">
+                                        <span class="tool-tag">
+                                            <i class="devicon-notion-plain"></i>
+                                            Notion
+                                        </span>
+                                        <span class="tool-tag">
+                                            <i class="devicon-jira-plain colored"></i>
+                                            Jira
+                                        </span>
+                                    </div>
                                 </div>
-                                <div class="skill-item">
-                                    <i class="devicon-github-original"></i>
-                                    <span>GitHub</span>
+                                <div class="flow-arrow">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="9 18 15 12 9 6"></polyline>
+                                    </svg>
                                 </div>
-                                <div class="skill-item">
-                                    <i class="devicon-vscode-plain colored"></i>
-                                    <span>VS Code</span>
+                                <div class="stack-stage">
+                                    <div class="stage-label">Execution</div>
+                                    <div class="stage-tools">
+                                        <span class="tool-tag">
+                                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                            </svg>
+                                            Manual Testing
+                                        </span>
+                                        <span class="tool-tag">
+                                            <i class="devicon-chrome-plain colored"></i>
+                                            DevTools
+                                        </span>
+                                    </div>
                                 </div>
-                                <div class="skill-item">
-                                    <i class="devicon-google-plain colored"></i>
-                                    <span>Google Workspace</span>
+                                <div class="flow-arrow">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="9 18 15 12 9 6"></polyline>
+                                    </svg>
                                 </div>
-                                <div class="skill-item">
-                                    <i class="devicon-trello-plain colored"></i>
-                                    <span>Trello</span>
+                                <div class="stack-stage">
+                                    <div class="stage-label">Reporting</div>
+                                    <div class="stage-tools">
+                                        <span class="tool-tag">
+                                            <i class="devicon-github-original"></i>
+                                            GitHub Issues
+                                        </span>
+                                        <span class="tool-tag">
+                                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                                <polyline points="14 2 14 8 20 8"></polyline>
+                                            </svg>
+                                            Internal Tools
+                                        </span>
+                                    </div>
                                 </div>
-                                <div class="skill-item">
-                                    <i class="devicon-notion-plain"></i>
-                                    <span>Notion</span>
+                                <div class="flow-arrow">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="9 18 15 12 9 6"></polyline>
+                                    </svg>
                                 </div>
-                                <div class="skill-item">
-                                    <i class="devicon-jira-plain colored"></i>
-                                    <span>Jira</span>
-                                </div>
-                                <div class="skill-item">
-                                    <i class="devicon-postman-plain colored"></i>
-                                    <span>Postman</span>
-                                </div>
-                                <div class="skill-item">
-                                    <i class="devicon-windows8-original colored"></i>
-                                    <span>Microsoft Office</span>
-                                </div>
-                                <div class="skill-item">
-                                    <i class="devicon-chrome-plain colored"></i>
-                                    <span>Chrome DevTools</span>
+                                <div class="stack-stage">
+                                    <div class="stage-label">Collaboration</div>
+                                    <div class="stage-tools">
+                                        <span class="tool-tag">
+                                            <i class="devicon-git-plain colored"></i>
+                                            Git
+                                        </span>
+                                        <span class="tool-tag">
+                                            <i class="devicon-trello-plain colored"></i>
+                                            Trello
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -2031,89 +2375,130 @@
                 <section id="certifications">
                     <div class="section-header">
                         <div class="section-label">Certifications</div>
-                        <h2 class="section-title">Courses & Credentials</h2>
+                        <h2 class="section-title">Learning Journey</h2>
+                        <p class="section-description">From fundamentals to advanced AI-powered development</p>
                     </div>
 
-                    <div class="certifications-list">
-                        <div class="cert-card">
-                            <div class="cert-badge aws">
-                                <img src="https://d1.awsstatic.com/logos/aws-logo-lockups/poweredbyaws/PB_AWS_logo_RGB.61d334f1a1a427ea597afa54be359ca5a5aaad5f.png" alt="AWS" />
-                            </div>
-                            <div class="cert-content">
-                                <div class="cert-title">Spec-Driven Development dengan Kiro</div>
-                                <div class="cert-issuer">Dicoding x AWS - AWS AI Academy · 2026</div>
-                                <div class="cert-meta">
-                                    <span class="cert-status completed">Done</span>
-                                    <a href="https://dicoding.com/certificates/JMZVOJKQ3XN9" class="cert-verify" target="_blank" rel="noopener noreferrer">Verify</a>
+                    <div class="certifications-timeline">
+                        <!-- 2026 - AWS AI Academy -->
+                        <div class="cert-year">
+                            <div class="year-label">2026</div>
+                            <div class="year-certs">
+                                <div class="cert-card premium-cert">
+                                    <div class="cert-badge aws">
+                                        <img src="https://d1.awsstatic.com/logos/aws-logo-lockups/poweredbyaws/PB_AWS_logo_RGB.61d334f1a1a427ea597afa54be359ca5a5aaad5f.png" alt="AWS" />
+                                    </div>
+                                    <div class="cert-content">
+                                        <div class="premium-badge">Premium Credential</div>
+                                        <div class="cert-title">Spec-Driven Development dengan Kiro</div>
+                                        <div class="cert-issuer">Dicoding x AWS - AWS AI Academy</div>
+                                        <div class="cert-skills">
+                                            <span class="skill-pill">AI-Powered Development</span>
+                                            <span class="skill-pill">Spec-Driven Design</span>
+                                            <span class="skill-pill">AWS Tools</span>
+                                        </div>
+                                        <div class="cert-meta">
+                                            <span class="cert-status completed">Completed</span>
+                                            <a href="https://dicoding.com/certificates/JMZVOJKQ3XN9" class="cert-verify" target="_blank" rel="noopener noreferrer">Verify →</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="cert-card premium-cert">
+                                    <div class="cert-badge aws">
+                                        <img src="https://d1.awsstatic.com/logos/aws-logo-lockups/poweredbyaws/PB_AWS_logo_RGB.61d334f1a1a427ea597afa54be359ca5a5aaad5f.png" alt="AWS" />
+                                    </div>
+                                    <div class="cert-content">
+                                        <div class="premium-badge">Premium Credential</div>
+                                        <div class="cert-title">Belajar Dasar Cloud dan Gen AI di AWS</div>
+                                        <div class="cert-issuer">Dicoding x AWS - AWS AI Academy</div>
+                                        <div class="cert-skills">
+                                            <span class="skill-pill">Cloud Computing</span>
+                                            <span class="skill-pill">Generative AI</span>
+                                            <span class="skill-pill">AWS Services</span>
+                                        </div>
+                                        <div class="cert-meta">
+                                            <span class="cert-status progress">In Progress</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="cert-card">
-                            <div class="cert-badge dicoding">
-                                <img src="https://dicoding-web-img.sgp1.cdn.digitaloceanspaces.com/original/commons/new-ui-logo.png" alt="Dicoding" />
-                            </div>
-                            <div class="cert-content">
-                                <div class="cert-title">Prompt Engineering untuk Software Developer</div>
-                                <div class="cert-issuer">Dicoding · 2025</div>
-                                <div class="cert-meta">
-                                    <span class="cert-status completed">Done</span>
-                                    <a href="https://dicoding.com/certificates/98XWOOW2LZM3" class="cert-verify" target="_blank" rel="noopener noreferrer">Verify</a>
+                        <!-- 2025 -->
+                        <div class="cert-year">
+                            <div class="year-label">2025</div>
+                            <div class="year-certs">
+                                <div class="cert-card">
+                                    <div class="cert-badge dicoding">
+                                        <img src="https://dicoding-web-img.sgp1.cdn.digitaloceanspaces.com/original/commons/new-ui-logo.png" alt="Dicoding" />
+                                    </div>
+                                    <div class="cert-content">
+                                        <div class="cert-title">Prompt Engineering untuk Software Developer</div>
+                                        <div class="cert-issuer">Dicoding</div>
+                                        <div class="cert-skills">
+                                            <span class="skill-pill">AI Prompting</span>
+                                            <span class="skill-pill">LLM Integration</span>
+                                        </div>
+                                        <div class="cert-meta">
+                                            <span class="cert-status completed">Completed</span>
+                                            <a href="https://dicoding.com/certificates/98XWOOW2LZM3" class="cert-verify" target="_blank" rel="noopener noreferrer">Verify →</a>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
 
-                        <div class="cert-card">
-                            <div class="cert-badge dicoding">
-                                <img src="https://dicoding-web-img.sgp1.cdn.digitaloceanspaces.com/original/commons/new-ui-logo.png" alt="Dicoding" />
-                            </div>
-                            <div class="cert-content">
-                                <div class="cert-title">Belajar Dasar Structured Query Language (SQL)</div>
-                                <div class="cert-issuer">Dicoding · 2025</div>
-                                <div class="cert-meta">
-                                    <span class="cert-status completed">Done</span>
-                                    <a href="https://dicoding.com/certificates/81P25KO6YPOY" class="cert-verify" target="_blank" rel="noopener noreferrer">Verify</a>
+                                <div class="cert-card">
+                                    <div class="cert-badge dicoding">
+                                        <img src="https://dicoding-web-img.sgp1.cdn.digitaloceanspaces.com/original/commons/new-ui-logo.png" alt="Dicoding" />
+                                    </div>
+                                    <div class="cert-content">
+                                        <div class="cert-title">Belajar Dasar Structured Query Language (SQL)</div>
+                                        <div class="cert-issuer">Dicoding</div>
+                                        <div class="cert-skills">
+                                            <span class="skill-pill">SQL Queries</span>
+                                            <span class="skill-pill">Database Testing</span>
+                                        </div>
+                                        <div class="cert-meta">
+                                            <span class="cert-status completed">Completed</span>
+                                            <a href="https://dicoding.com/certificates/81P25KO6YPOY" class="cert-verify" target="_blank" rel="noopener noreferrer">Verify →</a>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
 
-                        <div class="cert-card">
-                            <div class="cert-badge dicoding">
-                                <img src="https://dicoding-web-img.sgp1.cdn.digitaloceanspaces.com/original/commons/new-ui-logo.png" alt="Dicoding" />
-                            </div>
-                            <div class="cert-content">
-                                <div class="cert-title">Belajar Dasar Data Science</div>
-                                <div class="cert-issuer">Dicoding x Google Developers · 2025</div>
-                                <div class="cert-meta">
-                                    <span class="cert-status completed">Done</span>
-                                    <a href="https://dicoding.com/certificates/KEXL2MQY0ZG2" class="cert-verify" target="_blank" rel="noopener noreferrer">Verify</a>
+                                <div class="cert-card">
+                                    <div class="cert-badge dicoding">
+                                        <img src="https://dicoding-web-img.sgp1.cdn.digitaloceanspaces.com/original/commons/new-ui-logo.png" alt="Dicoding" />
+                                    </div>
+                                    <div class="cert-content">
+                                        <div class="cert-title">Belajar Dasar Data Science</div>
+                                        <div class="cert-issuer">Dicoding x Google Developers</div>
+                                        <div class="cert-skills">
+                                            <span class="skill-pill">Data Analysis</span>
+                                            <span class="skill-pill">Python</span>
+                                        </div>
+                                        <div class="cert-meta">
+                                            <span class="cert-status completed">Completed</span>
+                                            <a href="https://dicoding.com/certificates/KEXL2MQY0ZG2" class="cert-verify" target="_blank" rel="noopener noreferrer">Verify →</a>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
 
-                        <div class="cert-card">
-                            <div class="cert-badge dicoding">
-                                <img src="https://dicoding-web-img.sgp1.cdn.digitaloceanspaces.com/original/commons/new-ui-logo.png" alt="Dicoding" />
-                            </div>
-                            <div class="cert-content">
-                                <div class="cert-title">Belajar Dasar Visualisasi Data</div>
-                                <div class="cert-issuer">Dicoding x Google Developers · 2025</div>
-                                <div class="cert-meta">
-                                    <span class="cert-status completed">Done</span>
-                                    <a href="https://dicoding.com/certificates/NVP7JWEKVXR0" class="cert-verify" target="_blank" rel="noopener noreferrer">Verify</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="cert-card">
-                            <div class="cert-badge aws">
-                                <img src="https://d1.awsstatic.com/logos/aws-logo-lockups/poweredbyaws/PB_AWS_logo_RGB.61d334f1a1a427ea597afa54be359ca5a5aaad5f.png" alt="AWS" />
-                            </div>
-                            <div class="cert-content">
-                                <div class="cert-title">Belajar Dasar Cloud dan Gen AI di AWS</div>
-                                <div class="cert-issuer">Dicoding x AWS - AWS AI Academy · 2026</div>
-                                <div class="cert-meta">
-                                    <span class="cert-status progress">In Progress</span>
+                                <div class="cert-card">
+                                    <div class="cert-badge dicoding">
+                                        <img src="https://dicoding-web-img.sgp1.cdn.digitaloceanspaces.com/original/commons/new-ui-logo.png" alt="Dicoding" />
+                                    </div>
+                                    <div class="cert-content">
+                                        <div class="cert-title">Belajar Dasar Visualisasi Data</div>
+                                        <div class="cert-issuer">Dicoding x Google Developers</div>
+                                        <div class="cert-skills">
+                                            <span class="skill-pill">Data Visualization</span>
+                                            <span class="skill-pill">Reporting</span>
+                                        </div>
+                                        <div class="cert-meta">
+                                            <span class="cert-status completed">Completed</span>
+                                            <a href="https://dicoding.com/certificates/NVP7JWEKVXR0" class="cert-verify" target="_blank" rel="noopener noreferrer">Verify →</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

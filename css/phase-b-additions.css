@@ -1,0 +1,346 @@
+/* Phase B - Differentiation Styles */
+
+/* Skills Narrative Section */
+.skills-narrative {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.section-description {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+    line-height: 1.7;
+}
+
+.expertise-section {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+}
+
+.expertise-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.expertise-title::before {
+    content: '';
+    width: 4px;
+    height: 1.5rem;
+    background: var(--accent);
+    border-radius: 2px;
+}
+
+.expertise-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.expertise-item {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+}
+
+.expertise-icon {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    background: var(--accent-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+}
+
+[data-theme="dark"] .expertise-icon {
+    background: rgba(56, 189, 248, 0.1);
+}
+
+.expertise-content {
+    flex: 1;
+}
+
+.expertise-name {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.expertise-desc {
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+/* Testing Stack Flow */
+.testing-stack-section {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+}
+
+.stack-flow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.stack-stage {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-width: 160px;
+}
+
+.stage-label {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-align: center;
+}
+
+.stage-tools {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.tool-tag {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.tool-tag:hover {
+    border-color: var(--accent);
+    transform: translateX(3px);
+}
+
+.tool-tag i {
+    font-size: 1.25rem;
+}
+
+.tool-tag svg {
+    flex-shrink: 0;
+    color: var(--accent);
+}
+
+.flow-arrow {
+    color: var(--text-dim);
+    display: flex;
+    align-items: center;
+}
+
+.flow-arrow svg {
+    animation: pulse-arrow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-arrow {
+    0%, 100% {
+        opacity: 0.5;
+        transform: translateX(0);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(3px);
+    }
+}
+
+/* Work Projects Styling */
+.work-projects {
+    background: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+/* Certifications Timeline */
+.certifications-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.cert-year {
+    position: relative;
+}
+
+.year-label {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    font-family: 'Fira Code', monospace;
+}
+
+.year-certs {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding-left: 2rem;
+    border-left: 3px solid var(--accent);
+}
+
+.premium-cert {
+    position: relative;
+    background: linear-gradient(135deg, var(--bg-card) 0%, var(--accent-light) 100%);
+    border: 2px solid var(--accent);
+}
+
+[data-theme="dark"] .premium-cert {
+    background: linear-gradient(135deg, var(--bg-card) 0%, rgba(56, 189, 248, 0.05) 100%);
+}
+
+.premium-cert::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    border-radius: 12px;
+    padding: 2px;
+    background: linear-gradient(135deg, var(--accent), var(--purple));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.premium-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: var(--accent);
+    color: white;
+    border-radius: 9999px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+}
+
+.cert-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.skill-pill {
+    padding: 0.3rem 0.75rem;
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    border-radius: 9999px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.75rem;
+    transition: all 0.2s;
+}
+
+.skill-pill:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .stack-flow {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .flow-arrow {
+        transform: rotate(90deg);
+        margin: 0.5rem 0;
+    }
+
+    .flow-arrow svg {
+        animation: pulse-arrow-down 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-arrow-down {
+        0%, 100% {
+            opacity: 0.5;
+            transform: translateY(0);
+        }
+        50% {
+            opacity: 1;
+            transform: translateY(3px);
+        }
+    }
+
+    .stack-stage {
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .expertise-section,
+    .testing-stack-section {
+        padding: 1.5rem;
+    }
+
+    .expertise-item {
+        gap: 1rem;
+    }
+
+    .expertise-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .expertise-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .year-certs {
+        padding-left: 1.5rem;
+        border-left-width: 2px;
+    }
+
+    .work-projects {
+        padding: 1.5rem;
+    }
+
+    .featured-project {
+        padding: 2rem;
+    }
+
+    .featured-project h3 {
+        font-size: 1.5rem;
+    }
+
+    .featured-highlights {
+        padding: 1.25rem;
+    }
+}
