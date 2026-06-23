@@ -186,14 +186,15 @@
         padding-bottom: 5rem;
     }
 
-    /* Adjust button positions for sticky nav */
+    /* Adjust floating buttons - stack side by side above sticky nav */
     .whatsapp-float {
         bottom: 6rem;
+        right: 5rem;
     }
 
     #back-to-top {
         bottom: 6rem;
-        right: 2rem;
+        right: 1rem;
     }
 }
 
@@ -215,6 +216,7 @@
         padding: 0;
         justify-content: center;
         bottom: 6rem;
+        right: 4.5rem;
     }
 
     .whatsapp-text {
@@ -230,15 +232,10 @@
         font-size: 0.8rem;
     }
 
-    /* Stack buttons vertically on mobile */
+    /* Keep buttons side by side on mobile */
     #back-to-top {
-        bottom: 7rem;
+        bottom: 6rem;
         right: 1rem;
-    }
-
-    .whatsapp-float {
-        bottom: 7rem;
-        right: 4.5rem;
     }
 }
 
