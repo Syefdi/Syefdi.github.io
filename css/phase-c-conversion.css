@@ -186,9 +186,14 @@
         padding-bottom: 5rem;
     }
 
-    /* Hide WhatsApp float on smaller screens (use sticky nav instead) */
+    /* Adjust button positions for sticky nav */
     .whatsapp-float {
         bottom: 6rem;
+    }
+
+    #back-to-top {
+        bottom: 6rem;
+        right: 2rem;
     }
 }
 
@@ -223,6 +228,17 @@
 
     .contact-hint {
         font-size: 0.8rem;
+    }
+
+    /* Stack buttons vertically on mobile */
+    #back-to-top {
+        bottom: 7rem;
+        right: 1rem;
+    }
+
+    .whatsapp-float {
+        bottom: 7rem;
+        right: 4.5rem;
     }
 }
 
