@@ -1,0 +1,238 @@
+/* Phase C - Conversion / CTA Optimization */
+
+/* Hero CTA Buttons */
+.hero-cta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1.75rem;
+    border-radius: 9999px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.cta-button.primary {
+    background: #25D366;
+    color: white;
+    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.25);
+}
+
+.cta-button.primary:hover {
+    background: #20ba5a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(37, 211, 102, 0.35);
+}
+
+.cta-button.secondary {
+    background: transparent;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+}
+
+.cta-button.secondary:hover {
+    background: var(--accent);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.cta-button svg {
+    flex-shrink: 0;
+}
+
+/* WhatsApp Floating Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: auto;
+    height: 56px;
+    background: #25D366;
+    color: white;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0 1.5rem;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    text-decoration: none;
+    z-index: 999;
+    transition: all 0.3s ease;
+    font-family: 'Fira Code', monospace;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.whatsapp-float:hover {
+    background: #20ba5a;
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 32px rgba(37, 211, 102, 0.5);
+}
+
+.whatsapp-float svg {
+    flex-shrink: 0;
+}
+
+.whatsapp-text {
+    white-space: nowrap;
+}
+
+/* Primary Contact Card */
+.primary-contact {
+    position: relative;
+    border: 2px solid #25D366;
+    background: linear-gradient(135deg, var(--bg-card) 0%, rgba(37, 211, 102, 0.05) 100%);
+}
+
+.primary-contact:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 12px 40px rgba(37, 211, 102, 0.2);
+    border-color: #25D366;
+}
+
+.priority-badge {
+    position: absolute;
+    top: -12px;
+    right: 1rem;
+    padding: 0.25rem 0.75rem;
+    background: #25D366;
+    color: white;
+    border-radius: 9999px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3);
+}
+
+.primary-contact .icon svg {
+    width: 32px;
+    height: 32px;
+}
+
+.contact-hint {
+    font-size: 0.85rem;
+    color: #25D366;
+    font-family: 'Fira Code', monospace;
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+/* Mobile Sticky Bottom Nav */
+.mobile-sticky-nav {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border);
+    padding: 0.5rem 0;
+    z-index: 998;
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.mobile-sticky-nav .nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    flex: 1;
+    padding: 0.5rem;
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.7rem;
+    font-family: 'Fira Code', monospace;
+    transition: all 0.2s;
+}
+
+.mobile-sticky-nav .nav-item:hover,
+.mobile-sticky-nav .nav-item.active {
+    color: var(--accent);
+}
+
+.mobile-sticky-nav .nav-item.accent {
+    color: var(--accent);
+}
+
+.mobile-sticky-nav .nav-item svg {
+    flex-shrink: 0;
+}
+
+[data-theme="dark"] .mobile-sticky-nav {
+    background: var(--bg-card);
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .mobile-sticky-nav {
+        display: flex;
+    }
+
+    /* Add padding to main content so sticky nav doesn't overlap */
+    main {
+        padding-bottom: 5rem;
+    }
+
+    /* Hide WhatsApp float on smaller screens (use sticky nav instead) */
+    .whatsapp-float {
+        bottom: 6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-cta {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .cta-button {
+        justify-content: center;
+        width: 100%;
+        padding: 1rem 1.5rem;
+    }
+
+    .whatsapp-float {
+        width: 56px;
+        height: 56px;
+        padding: 0;
+        justify-content: center;
+        bottom: 6rem;
+    }
+
+    .whatsapp-text {
+        display: none;
+    }
+
+    .priority-badge {
+        font-size: 0.65rem;
+        padding: 0.2rem 0.6rem;
+    }
+
+    .contact-hint {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .mobile-sticky-nav .nav-item span {
+        font-size: 0.65rem;
+    }
+
+    .mobile-sticky-nav .nav-item svg {
+        width: 20px;
+        height: 20px;
+    }
+}
