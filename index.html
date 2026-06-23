@@ -306,29 +306,55 @@
             background: var(--accent);
         }
 
-        .resume-btn {
+        /* Sidebar Actions Section */
+        .sidebar-actions {
+            margin-top: auto;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .resume-btn,
+        .terminal-mode-btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 0.5rem;
-            padding: 0.5rem 1.25rem;
-            border: 1px solid var(--accent);
-            border-radius: 6px;
-            color: var(--accent);
+            padding: 0.65rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-secondary);
             text-decoration: none;
             font-family: 'Fira Code', monospace;
             font-size: 0.8rem;
             font-weight: 500;
             transition: all 0.2s ease;
-            margin-bottom: 1.5rem;
-            width: fit-content;
+            width: 100%;
+        }
+
+        .resume-btn {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: transparent;
         }
 
         .resume-btn:hover {
             background: var(--accent);
             color: white;
+            transform: translateY(-1px);
+        }
+
+        .terminal-mode-btn:hover {
+            background: var(--accent-light);
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-1px);
         }
 
         .sidebar-theme-toggle {
+            margin-top: 1rem;
             margin-bottom: 1.25rem;
         }
 
@@ -1999,17 +2025,27 @@
                         <li><a href="#contact" class="nav-link">Contact</a></li>
                     </ul>
                 </nav>
-                <!-- Resume button removed - available in mobile sticky nav -->
-                
-                <!-- Terminal Mode Link -->
-                <nav class="sidebar-nav terminal-nav" style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
-                    <ul>
-                        <li>
-                            <a href="terminal.html" class="nav-link terminal-link">Terminal Mode</a>
-                        </li>
-                    </ul>
-                </nav>
             </div>
+            
+            <div class="sidebar-actions">
+                <a href="assets/documents/resume.pdf" target="_blank" rel="noopener noreferrer" class="resume-btn">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                        <polyline points="7 10 12 15 17 10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                    Download Resume
+                </a>
+                
+                <a href="terminal.html" class="terminal-mode-btn">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="4 17 10 11 4 5"/>
+                        <line x1="12" y1="19" x2="20" y2="19"/>
+                    </svg>
+                    Terminal Mode
+                </a>
+            </div>
+            
             <div class="sidebar-theme-toggle">
                 <button id="theme-toggle" aria-label="Toggle theme">
                     <svg class="sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16">
