@@ -1,0 +1,104 @@
+[1mdiff --git a/index.html b/index.html[m
+[1mindex 84e7fb5..913b97a 100644[m
+[1m--- a/index.html[m
+[1m+++ b/index.html[m
+[36m@@ -306,29 +306,55 @@[m
+             background: var(--accent);[m
+         }[m
+ [m
+[31m-        .resume-btn {[m
+[32m+[m[32m        /* Sidebar Actions Section */[m[41m[m
+[32m+[m[32m        .sidebar-actions {[m[41m[m
+[32m+[m[32m            margin-top: auto;[m[41m[m
+[32m+[m[32m            padding-top: 1.5rem;[m[41m[m
+[32m+[m[32m            border-top: 1px solid var(--border);[m[41m[m
+[32m+[m[32m            display: flex;[m[41m[m
+[32m+[m[32m            flex-direction: column;[m[41m[m
+[32m+[m[32m            gap: 0.75rem;[m[41m[m
+[32m+[m[32m        }[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m        .resume-btn,[m[41m[m
+[32m+[m[32m        .terminal-mode-btn {[m[41m[m
+             display: inline-flex;[m
+             align-items: center;[m
+[32m+[m[32m            justify-content: center;[m[41m[m
+             gap: 0.5rem;[m
+[31m-            padding: 0.5rem 1.25rem;[m
+[31m-            border: 1px solid var(--accent);[m
+[31m-            border-radius: 6px;[m
+[31m-            color: var(--accent);[m
+[32m+[m[32m            padding: 0.65rem 1rem;[m[41m[m
+[32m+[m[32m            border: 1px solid var(--border);[m[41m[m
+[32m+[m[32m            border-radius: 8px;[m[41m[m
+[32m+[m[32m            color: var(--text-secondary);[m[41m[m
+             text-decoration: none;[m
+             font-family: 'Fira Code', monospace;[m
+             font-size: 0.8rem;[m
+             font-weight: 500;[m
+             transition: all 0.2s ease;[m
+[31m-            margin-bottom: 1.5rem;[m
+[31m-            width: fit-content;[m
+[32m+[m[32m            width: 100%;[m[41m[m
+[32m+[m[32m        }[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m        .resume-btn {[m[41m[m
+[32m+[m[32m            border-color: var(--accent);[m[41m[m
+[32m+[m[32m            color: var(--accent);[m[41m[m
+[32m+[m[32m            background: transparent;[m[41m[m
+         }[m
+ [m
+         .resume-btn:hover {[m
+             background: var(--accent);[m
+             color: white;[m
+[32m+[m[32m            transform: translateY(-1px);[m[41m[m
+[32m+[m[32m        }[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m        .terminal-mode-btn:hover {[m[41m[m
+[32m+[m[32m            background: var(--accent-light);[m[41m[m
+[32m+[m[32m            border-color: var(--accent);[m[41m[m
+[32m+[m[32m            color: var(--accent);[m[41m[m
+[32m+[m[32m            transform: translateY(-1px);[m[41m[m
+         }[m
+ [m
+         .sidebar-theme-toggle {[m
+[32m+[m[32m            margin-top: 1rem;[m[41m[m
+             margin-bottom: 1.25rem;[m
+         }[m
+ [m
+[36m@@ -1999,17 +2025,27 @@[m
+                         <li><a href="#contact" class="nav-link">Contact</a></li>[m
+                     </ul>[m
+                 </nav>[m
+[31m-                <!-- Resume button removed - available in mobile sticky nav -->[m
+[32m+[m[32m            </div>[m[41m[m
+[32m+[m[41m            [m
+[32m+[m[32m            <div class="sidebar-actions">[m[41m[m
+[32m+[m[32m                <a href="assets/documents/resume.pdf" target="_blank" rel="noopener noreferrer" class="resume-btn">[m[41m[m
+[32m+[m[32m                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">[m[41m[m
+[32m+[m[32m                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>[m[41m[m
+[32m+[m[32m                        <polyline points="7 10 12 15 17 10"/>[m[41m[m
+[32m+[m[32m                        <line x1="12" y1="15" x2="12" y2="3"/>[m[41m[m
+[32m+[m[32m                    </svg>[m[41m[m
+[32m+[m[32m                    Download Resume[m[41m[m
+[32m+[m[32m                </a>[m[41m[m
+                 [m
+[31m-                <!-- Terminal Mode Link -->[m
+[31m-                <nav class="sidebar-nav terminal-nav" style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">[m
+[31m-                    <ul>[m
+[31m-                        <li>[m
+[31m-                            <a href="terminal.html" class="nav-link terminal-link">Terminal Mode</a>[m
+[31m-                        </li>[m
+[31m-                    </ul>[m
+[31m-                </nav>[m
+[32m+[m[32m                <a href="terminal.html" class="terminal-mode-btn">[m[41m[m
+[32m+[m[32m                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">[m[41m[m
+[32m+[m[32m                        <polyline points="4 17 10 11 4 5"/>[m[41m[m
+[32m+[m[32m                        <line x1="12" y1="19" x2="20" y2="19"/>[m[41m[m
+[32m+[m[32m                    </svg>[m[41m[m
+[32m+[m[32m                    Terminal Mode[m[41m[m
+[32m+[m[32m                </a>[m[41m[m
+             </div>[m
+[32m+[m[41m            [m
+             <div class="sidebar-theme-toggle">[m
+                 <button id="theme-toggle" aria-label="Toggle theme">[m
+                     <svg class="sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16">[m
