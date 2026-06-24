@@ -55,6 +55,28 @@
             box-sizing: border-box;
         }
 
+        /* Disable text selection highlight */
+        * {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* Allow selection for specific content areas */
+        .about-text,
+        .experience-item ul,
+        .project-card p,
+        .contact-intro,
+        .modal-description,
+        p,
+        li {
+            -webkit-user-select: text;
+            -moz-user-select: text;
+            -ms-user-select: text;
+            user-select: text;
+        }
+
         :root {
             --bg-primary: #fafafa;
             --bg-secondary: #ffffff;
