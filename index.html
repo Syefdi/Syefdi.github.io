@@ -149,26 +149,28 @@
             transition: width 0.1s ease;
         }
 
-        /* Layout Container */
+        /* Layout Container - Full Flex not Split */
         .app-container {
             display: flex;
             min-height: 100vh;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 6rem;
+            gap: 8rem;
         }
 
-        /* Sidebar - Brittany Chiang Style: 40% Width */
+        /* Sidebar - Sticky Left Section (not fixed) */
         .sidebar {
-            position: fixed;
+            position: sticky;
             top: 0;
-            left: 0;
             width: 40%;
-            max-width: 600px;
+            max-width: 450px;
             height: 100vh;
-            background: var(--bg-primary);
-            padding: 5rem 4rem;
+            padding: 6rem 0;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            z-index: 100;
+            flex-shrink: 0;
             overflow-y: auto;
             overflow-x: hidden;
         }
@@ -553,9 +555,9 @@
 
         /* Main Content - 60% Right Side */
         main {
-            margin-left: 40%;
             width: 60%;
-            padding: 5rem 4rem;
+            flex: 1;
+            padding: 6rem 0;
         }
 
         .content-wrapper {
@@ -1738,33 +1740,40 @@
         /* Responsive */
         /* Responsive - Brittany Style */
         @media (max-width: 1024px) {
-            .sidebar {
-                width: 50%;
-                padding: 4rem 2.5rem;
+            .app-container {
+                padding: 0 4rem;
+                gap: 4rem;
             }
-
+            
+            .sidebar {
+                width: 45%;
+                padding: 4rem 0;
+            }
+            
             main {
-                margin-left: 50%;
-                width: 50%;
-                padding: 4rem 2.5rem;
+                width: 55%;
+                padding: 4rem 0;
             }
         }
 
         @media (max-width: 768px) {
             /* Stack layout on mobile */
+            .app-container {
+                flex-direction: column;
+                padding: 3rem 2rem;
+                gap: 2rem;
+            }
+            
             .sidebar {
                 position: relative;
                 width: 100%;
                 height: auto;
-                padding: 3rem 2rem;
-                border-right: none;
-                border-bottom: 1px solid var(--border);
+                padding: 0;
             }
-
+            
             main {
-                margin-left: 0;
                 width: 100%;
-                padding: 3rem 2rem 6rem;
+                padding: 3rem 0 6rem;
             }
 
             /* Show mobile sticky nav */
