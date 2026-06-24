@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Metrics Dashboard Summary | QA Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#8ed5ff",
+                        "on-surface": "#dae2fd",
+                        "on-surface-variant": "#bdc8d1",
+                        background: "#0b1326",
+                        "surface-container": "#171f33",
+                        "border-slate-700": "#334155"
+                    },
+                    fontFamily: {
+                        sans: ["Plus Jakarta Sans"],
+                        mono: ["Fira Code"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #0b1326; color: #dae2fd; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        table { width: 100%; border-collapse: collapse; margin-top: 1rem; margin-bottom: 3rem;}
+        th { background: #171f33; text-align: left; padding: 1rem; border: 1px solid #334155; font-weight: 700; color: #8ed5ff; }
+        td { padding: 1rem; border: 1px solid #334155; color: #bdc8d1; vertical-align: top; }
+        tr:hover { background: rgba(142, 213, 255, 0.05); }
+        .summary-card { background: #171f33; border: 1px solid #334155; padding: 1.5rem; border-radius: 0.75rem; text-align: center;}
+        .summary-card h3 { color: #8ed5ff; font-family: 'Fira Code', monospace; font-size: 0.875rem; text-transform: uppercase; margin-bottom: 0.5rem;}
+        .summary-card p { font-size: 2.5rem; font-weight: 800; color: #dae2fd; line-height: 1;}
+    </style>
+</head>
+<body class="p-6 md:p-12 max-w-5xl mx-auto pb-24">
+    <a href="../index.html" class="inline-flex items-center gap-2 text-primary hover:underline mb-8">
+        <span class="material-symbols-outlined">arrow_back</span> Back to Portfolio
+    </a>
+    
+    <header class="mb-12 border-b border-border-slate-700 pb-8">
+        <h1 class="text-4xl font-bold text-on-surface mb-4">Metrics Dashboard Summary</h1>
+        <div class="flex flex-col gap-2 font-mono text-sm text-primary">
+            <p>Project: ERM (Enterprise Risk Management) Revamp V3 & CRMX</p>
+            <p>Tester: Syefdi Fasmawi Syaban</p>
+        </div>
+        <p class="text-on-surface-variant mt-4">Data bersumber dari sheet <strong>REKAP STATUS ERMV3</strong> (total 400 task terdokumentasi di sheet rekap, 386 di breakdown modul).</p>
+    </header>
+
+    <div class="space-y-12">
+        
+        <section>
+            <h2 class="text-2xl font-bold text-on-surface mb-6">Ringkasan Eksekutif</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                <div class="summary-card">
+                    <h3>Total Test Items</h3>
+                    <p>400</p>
+                </div>
+                <div class="summary-card" style="border-color: #4ae176;">
+                    <h3 style="color: #4ae176;">Pass Rate</h3>
+                    <p>83.0%</p>
+                </div>
+                <div class="summary-card" style="border-color: #ef4444;">
+                    <h3 style="color: #ef4444;">Fail Rate</h3>
+                    <p>5.25%</p>
+                </div>
+                <div class="summary-card">
+                    <h3>Coverage</h3>
+                    <p>97.25%</p>
+                </div>
+            </div>
+            
+            <table>
+                <tbody>
+                    <tr><th>Modul dengan Defect Density Tertinggi</th><td>Dashboard L3 (50%)</td></tr>
+                    <tr><th>Modul Paling Stabil</th><td>Login, Risk Import, Mitigation Update PIC (0 defect)</td></tr>
+                    <tr><th>Open Items (belum resolve)</th><td>54 items</td></tr>
+                    <tr><th>Cron Job Coverage</th><td class="text-error">0% (4 items belum ditest, beberapa error ditemukan)</td></tr>
+                    <tr><th>Bug Severity Dominan</th><td class="text-orange-400">High (43% dari total bug)</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2 class="text-2xl font-bold text-on-surface mb-6">Test Execution Progress - Overall</h2>
+            <div class="overflow-x-auto rounded-xl border border-border-slate-700">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Status</th>
+                            <th>Jumlah</th>
+                            <th>Persentase</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><span class="inline-flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-[#4ae176]"></span> Success</span></td><td>332</td><td>83.0%</td></tr>
+                        <tr><td><span class="inline-flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-[#ef4444]"></span> Failed</span></td><td>21</td><td>5.25%</td></tr>
+                        <tr><td><span class="inline-flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-slate-500"></span> Belum (Not Yet Tested)</span></td><td>11</td><td>2.75%</td></tr>
+                        <tr><td><span class="inline-flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-yellow-500"></span> Test (In Progress / Pending)</span></td><td>36</td><td>9.0%</td></tr>
+                        <tr class="font-bold text-white bg-slate-800"><td>Total</td><td>400</td><td>100%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="text-2xl font-bold text-on-surface mb-6">Bug Severity Breakdown</h2>
+            <p class="text-on-surface-variant mb-4">Berdasarkan analisis seluruh temuan yang berstatus Failed/Open di semua sheet.</p>
+            <div class="overflow-x-auto rounded-xl border border-border-slate-700">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Severity</th>
+                            <th>Definisi</th>
+                            <th>Jumlah Estimasi</th>
+                            <th>Contoh Temuan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="text-red-500 font-bold">Critical</td><td>Fungsi utama tidak berjalan, data corrupt, atau cron job gagal total</td><td class="text-2xl font-mono text-center">6</td><td>Cron job mail-mitigation-reminder error (DATE_FORMAT inkompatibel PostgreSQL), risk import BAU/Project failed, Dashboard L2 grouping tidak muncul</td></tr>
+                        <tr><td class="text-orange-500 font-bold">High</td><td>Fitur inti bermasalah, flow tidak bisa diselesaikan, email salah tujuan</td><td class="text-2xl font-mono text-center">9</td><td>Dashboard L3 chart error, email link salah arah (mengarah ke Edit bukan ke Mitigation Update), flagging tidak akurat saat multi-mitigasi</td></tr>
+                        <tr><td class="text-yellow-500 font-bold">Medium</td><td>Fitur berjalan tapi output tidak akurat, UI tidak konsisten</td><td class="text-2xl font-mono text-center">5</td><td>Total counter home masih salah, Login Frequency total salah, Masterdata Hierarchy error DataTables</td></tr>
+                        <tr><td class="text-blue-400 font-bold">Low</td><td>Kosmetik, label, minor UX issue</td><td class="text-2xl font-mono text-center">1</td><td>Tag HTML tampil saat delete risk (sudah fixed)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+        <section>
+            <h2 class="text-2xl font-bold text-on-surface mb-6">Defect Density per Module</h2>
+            <p class="text-on-surface-variant mb-4">Defect density = jumlah bug / total test case per modul.</p>
+            <div class="overflow-x-auto rounded-xl border border-border-slate-700">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Module</th>
+                            <th>Total TC</th>
+                            <th>Defect</th>
+                            <th>Defect Density</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Dashboard L3</td><td class="text-center">8</td><td class="text-center text-error">4</td><td class="text-error font-bold">50.0%</td></tr>
+                        <tr><td>Dashboard L2</td><td class="text-center">15</td><td class="text-center text-error">5</td><td class="text-error font-bold">33.3%</td></tr>
+                        <tr><td>Masterdata Project</td><td class="text-center">4</td><td class="text-center text-warning">1</td><td class="text-warning font-bold">25.0%</td></tr>
+                        <tr><td>Email Notification</td><td class="text-center">24</td><td class="text-center">1</td><td>4.2%</td></tr>
+                        <tr><td>Risk Registered</td><td class="text-center">158</td><td class="text-center">4</td><td>2.5%</td></tr>
+                        <tr><td>Home - Chart</td><td class="text-center">9</td><td class="text-center text-primary">0</td><td class="text-primary">-</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </div>
+</body>
+</html>

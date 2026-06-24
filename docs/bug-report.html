@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Bug Report Template | QA Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#8ed5ff",
+                        "on-surface": "#dae2fd",
+                        "on-surface-variant": "#bdc8d1",
+                        background: "#0b1326",
+                        "surface-container": "#171f33",
+                        "border-slate-700": "#334155"
+                    },
+                    fontFamily: {
+                        sans: ["Plus Jakarta Sans"],
+                        mono: ["Fira Code"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #0b1326; color: #dae2fd; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        pre { background-color: #171f33; padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #334155; overflow-x: auto; color: #bdc8d1; margin-top: 1rem; margin-bottom: 2rem;}
+        code { font-family: 'Fira Code', monospace; font-size: 0.875rem; line-height: 1.7; }
+    </style>
+</head>
+<body class="p-6 md:p-12 max-w-4xl mx-auto pb-24">
+    <a href="../index.html" class="inline-flex items-center gap-2 text-primary hover:underline mb-8">
+        <span class="material-symbols-outlined">arrow_back</span> Back to Portfolio
+    </a>
+    
+    <header class="mb-12 border-b border-border-slate-700 pb-8">
+        <h1 class="text-4xl font-bold text-on-surface mb-4">Bug Report - Template & Contoh</h1>
+        <div class="flex flex-col gap-2 font-mono text-sm text-primary">
+            <p>Project: ERM (Enterprise Risk Management) Revamp V3 & CRMX</p>
+            <p>Tester: Syefdi Fasmawi Syaban</p>
+        </div>
+    </header>
+
+    <div class="space-y-12">
+        
+        <section>
+            <h2 class="text-2xl font-bold text-on-surface mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-primary">article</span> Template Bug Report</h2>
+            <p class="text-on-surface-variant mb-4">Format standar yang digunakan untuk melaporkan anomali sistem secara komprehensif.</p>
+<pre><code>Title            : [ID-XXX] Singkat, spesifik, action-oriented
+Application      : ERM V3 / CRMX
+Environment      : Production / Staging / Dev
+Browser/OS       : Chrome 124 / Windows 10
+Tester           : [Nama]
+Date Found       : YYYY-MM-DD
+Severity         : Critical / High / Medium / Low
+Priority         : P1 / P2 / P3 / P4
+Status           : Open / In Progress / Fixed / Verified
+
+Steps to Reproduce:
+  1. [Step 1]
+  2. [Step 2]
+  3. [Step 3]
+
+Expected Result  :
+  [Behavior yang seharusnya terjadi]
+
+Actual Result    :
+  [Behavior yang terjadi]
+
+Attachments      : [screenshot / video / log]
+Notes            :
+  [Informasi tambahan, risk number contoh, user login]</code></pre>
+        </section>
+
+        <section>
+            <h2 class="text-2xl font-bold text-error mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-error">bug_report</span> Contoh Bug Kritis dari Data Real</h2>
+            <p class="text-on-surface-variant mb-4">Laporan nyata dari kegagalan cron job pada sistem PostgreSQL.</p>
+<pre><code class="text-error/80">Title            : [ERM-CRON-001] Cron Job mail-mitigation-reminder gagal dieksekusi
+                   akibat inkompatibilitas fungsi DATE_FORMAT() di PostgreSQL
+
+Application      : ERM V3
+Environment      : Dev (ermdev.abm-investama.com)
+Browser/OS       : N/A (Server-side Cron)
+Tester           : Irfan Arimiwandi
+Date Found       : 2026-06-09 (Date Issue ref: 46196)
+Severity         : Critical
+Priority         : P1
+Status           : Open
+
+Steps to Reproduce:
+  1. Login ke server ERM V3.
+  2. Jalankan cron job endpoint:
+     GET /api/mail/mitigation/reminder
+  3. Observasi response atau log server.
+
+Expected Result  :
+  Cron job berjalan sukses. Email reminder mitigation update
+  terkirim ke seluruh PIC yang belum melakukan update pada
+  periode berjalan.
+
+Actual Result    :
+  Cron job gagal dengan error:
+  "Undefined function DATE_FORMAT"
+  Database yang digunakan adalah PostgreSQL, namun query pada
+  cron job menggunakan fungsi DATE_FORMAT() yang merupakan
+  sintaks MySQL. Di PostgreSQL, fungsi yang valid adalah
+  TO_CHAR(). Akibatnya, seluruh email reminder mitigation
+  tidak terkirim ke pengguna.
+
+Impact           :
+  Seluruh PIC tidak menerima notifikasi reminder. Risk Owner
+  tidak aware bahwa ada mitigasi yang belum diupdate. Flagging
+  tetap merah tanpa ada pengingat otomatis, berpotensi
+  menyebabkan compliance gap pada laporan risiko.
+
+Attachments      : server_error_log_cron_46196.txt
+Notes            :
+  - Ditemukan juga error serupa pada cron lain di batch yang
+    sama (mail-earlywarning-notif, mail-riskresidual-reminder).
+  - Fix: ganti DATE_FORMAT(col, '%Y-%m') menjadi
+    TO_CHAR(col, 'YYYY-MM') pada semua query cron.
+  - Ref internal tester: "test by irf 11:13" pada sheet ERM V3.</code></pre>
+        </section>
+        
+    </div>
+</body>
+</html>

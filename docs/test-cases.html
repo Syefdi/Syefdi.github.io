@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Test Case Format | QA Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#8ed5ff",
+                        "on-surface": "#dae2fd",
+                        "on-surface-variant": "#bdc8d1",
+                        background: "#0b1326",
+                        "surface-container": "#171f33",
+                        "border-slate-700": "#334155"
+                    },
+                    fontFamily: {
+                        sans: ["Plus Jakarta Sans"],
+                        mono: ["Fira Code"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #0b1326; color: #dae2fd; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+        th { background: #171f33; text-align: left; padding: 1rem; border: 1px solid #334155; font-weight: 700; color: #8ed5ff; width: 25%; }
+        td { padding: 1rem; border: 1px solid #334155; color: #bdc8d1; vertical-align: top; width: 75%; }
+        tr:hover { background: rgba(142, 213, 255, 0.05); }
+        pre { background-color: #171f33; padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #334155; overflow-x: auto; color: #bdc8d1; margin-top: 1rem; margin-bottom: 2rem;}
+        code { font-family: 'Fira Code', monospace; font-size: 0.875rem; line-height: 1.7; }
+        .tc-card { border: 1px solid #334155; border-radius: 0.75rem; overflow: hidden; margin-bottom: 3rem;}
+        .tc-header { background: #171f33; padding: 1rem; border-bottom: 1px solid #334155; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;}
+        .status-pass { color: #4ae176; font-weight: 700; }
+    </style>
+</head>
+<body class="p-6 md:p-12 max-w-4xl mx-auto pb-24">
+    <a href="../index.html" class="inline-flex items-center gap-2 text-primary hover:underline mb-8">
+        <span class="material-symbols-outlined">arrow_back</span> Back to Portfolio
+    </a>
+    
+    <header class="mb-12 border-b border-border-slate-700 pb-8">
+        <h1 class="text-4xl font-bold text-on-surface mb-4">Test Case Format & Contoh</h1>
+        <div class="flex flex-col gap-2 font-mono text-sm text-primary">
+            <p>Project: ERM (Enterprise Risk Management) Revamp V3 & CRMX</p>
+            <p>Tester: Syefdi Fasmawi Syaban</p>
+        </div>
+    </header>
+
+    <div class="space-y-12">
+        <section>
+            <h2 class="text-2xl font-bold text-on-surface mb-4">Template Test Case</h2>
+<pre><code>Test ID          :
+Scenario         :
+Module           :
+Pre-condition    :
+Test Steps       :
+  1.
+  2.
+  3.
+Test Data        :
+Expected Result  :
+Actual Result    :
+Status           :
+Tester           :
+Date             :</code></pre>
+        </section>
+
+        <section>
+            <h2 class="text-2xl font-bold text-on-surface mb-6">Contoh Implementasi Test Case</h2>
+
+            <!-- TC 1 -->
+            <div class="tc-card">
+                <div class="tc-header text-secondary"><span class="material-symbols-outlined">check_circle</span> TC-001 - Positive Case: Risk Input Berhasil Disimpan</div>
+                <table>
+                    <tbody>
+                        <tr><th>Test ID</th><td>TC-ERM-RI-001</td></tr>
+                        <tr><th>Scenario</th><td>Risk berhasil dibuat dan masuk ke tab Need Follow Up</td></tr>
+                        <tr><th>Module</th><td>Risk Input - BAU</td></tr>
+                        <tr><th>Pre-condition</th><td>User sudah login sebagai Risk Owner dengan reference aktif. Current control evaluation tersedia.</td></tr>
+                        <tr><th>Test Steps</th><td>
+                            <ol class="list-decimal pl-5 space-y-1">
+                                <li>Klik menu Risk Input.</li>
+                                <li>Isi semua field wajib: Risk Description, Inherent Risk (Likelihood + Severity), Current Control Evaluation = "Require to Improve", Action = "Reduce", Residual Risk Plan, Objective, BSC.</li>
+                                <li>Tambahkan 1 mitigasi dengan PIC valid, Due Date, dan Periode.</li>
+                                <li>Klik Save.</li>
+                            </ol>
+                        </td></tr>
+                        <tr><th>Test Data</th><td>Risk Owner: dewichatarina, PIC: rini.hervina, Likelihood: Possible, Severity: Major, Action: Reduce</td></tr>
+                        <tr><th>Expected Result</th><td>Risk tersimpan dengan Risk Number format RN-BU-2026-XXX. Data muncul di tab Need Follow Up. Risk Owner menerima email notifikasi.</td></tr>
+                        <tr><th>Status</th><td class="status-pass">PASSED</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- TC 2 -->
+            <div class="tc-card">
+                <div class="tc-header text-error"><span class="material-symbols-outlined">cancel</span> TC-002 - Negative Case: Validasi Mandatory Mitigasi</div>
+                <table>
+                    <tbody>
+                        <tr><th>Test ID</th><td>TC-ERM-RI-002</td></tr>
+                        <tr><th>Scenario</th><td>Sistem menolak penyimpanan risk yang wajib mitigasi tetapi field mitigasi dikosongkan</td></tr>
+                        <tr><th>Module</th><td>Risk Input - BAU</td></tr>
+                        <tr><th>Pre-condition</th><td>User login sebagai Risk Owner. Current control evaluation tersedia.</td></tr>
+                        <tr><th>Test Steps</th><td>
+                            <ol class="list-decimal pl-5 space-y-1">
+                                <li>Buka menu Risk Input.</li>
+                                <li>Isi semua field kecuali mitigasi.</li>
+                                <li>Set Action = "Reduce" (bukan Adequate/Avoid).</li>
+                                <li>Klik Save tanpa menambahkan mitigasi.</li>
+                            </ol>
+                        </td></tr>
+                        <tr><th>Test Data</th><td>Action: Reduce, Mitigasi: kosong</td></tr>
+                        <tr><th>Expected Result</th><td>Sistem menampilkan validasi error. Risk tidak tersimpan.</td></tr>
+                        <tr><th>Status</th><td class="status-pass">PASSED</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- TC 3 -->
+            <div class="tc-card">
+                <div class="tc-header text-error"><span class="material-symbols-outlined">cancel</span> TC-003 - Negative Case: Update Cancelled Mitigation</div>
+                <table>
+                    <tbody>
+                        <tr><th>Test ID</th><td>TC-ERM-MIT-001</td></tr>
+                        <tr><th>Scenario</th><td>Mitigasi dengan status Cancelled tidak bisa diedit oleh PIC</td></tr>
+                        <tr><th>Module</th><td>Mitigation Update Required - PIC</td></tr>
+                        <tr><th>Pre-condition</th><td>Terdapat risk dengan mitigasi yang sudah berstatus Cancelled. User login sebagai PIC mitigasi tersebut.</td></tr>
+                        <tr><th>Test Steps</th><td>
+                            <ol class="list-decimal pl-5 space-y-1">
+                                <li>Login sebagai PIC (contoh: rini.hervina).</li>
+                                <li>Buka menu Mitigation Update Required.</li>
+                                <li>Cari risk dengan mitigasi Cancelled (ref: RN-BU-2026-611).</li>
+                                <li>Coba edit field mitigasi yang Cancelled tersebut.</li>
+                            </ol>
+                        </td></tr>
+                        <tr><th>Test Data</th><td>Risk Number: RN-BU-2026-611, Status mitigasi: Cancelled</td></tr>
+                        <tr><th>Expected Result</th><td>Seluruh kolom mitigasi yang Cancelled ter-block/disabled. PIC tidak bisa melakukan perubahan apapun.</td></tr>
+                        <tr><th>Status</th><td class="status-pass">PASSED</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- TC 4 -->
+            <div class="tc-card">
+                <div class="tc-header text-primary"><span class="material-symbols-outlined">warning</span> TC-004 - Edge Case: Prorate Plan Mitigasi</div>
+                <table>
+                    <tbody>
+                        <tr><th>Test ID</th><td>TC-ERM-MIT-002</td></tr>
+                        <tr><th>Scenario</th><td>Perhitungan prorate actual mitigation progress tidak lagi menghitung mitigasi yang sudah di-cancel</td></tr>
+                        <tr><th>Module</th><td>Risk Register - Registered / Mitigation Progress</td></tr>
+                        <tr><th>Pre-condition</th><td>Terdapat risk BAU dengan lebih dari satu mitigasi aktif. Salah satu mitigasi sudah di-cancel oleh Risk Owner. PIC mitigasi lain sudah melakukan update progress.</td></tr>
+                        <tr><th>Test Steps</th><td>
+                            <ol class="list-decimal pl-5 space-y-1">
+                                <li>Login sebagai Risk Owner.</li>
+                                <li>Cancel salah satu mitigasi pada risk RN-BU-2026-623.</li>
+                                <li>Login sebagai PIC mitigasi yang masih aktif.</li>
+                                <li>Update progress mitigasi aktif tersebut.</li>
+                                <li>Cek kolom Actual Cumulative Average di RR dan Dashboard L1/L2.</li>
+                            </ol>
+                        </td></tr>
+                        <tr><th>Test Data</th><td>Risk: RN-BU-2026-623, Jumlah mitigasi: 2, Status: 1 aktif - 1 cancelled</td></tr>
+                        <tr><th>Expected Result</th><td>Perhitungan prorate actual hanya menghitung mitigasi aktif. Mitigasi Cancelled tidak ikut sebagai pembagi. Nilai average di RR dan Dashboard konsisten.</td></tr>
+                        <tr><th>Status</th><td class="status-pass">PASSED</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+    </div>
+</body>
+</html>
