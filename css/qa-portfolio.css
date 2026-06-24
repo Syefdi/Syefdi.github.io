@@ -1,0 +1,343 @@
+/* QA Portfolio Specific Styles */
+
+/* Testing Stats Grid */
+.testing-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+}
+
+.stat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent);
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.stat-detail {
+    font-size: 0.875rem;
+    color: var(--text-dim);
+}
+
+/* QA Showcase Sections */
+.qa-showcase-section {
+    margin-bottom: 4rem;
+}
+
+.qa-section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+}
+
+.qa-section-title svg {
+    color: var(--accent);
+    flex-shrink: 0;
+}
+
+/* QA Items Grid */
+.qa-items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.qa-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.75rem;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.qa-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent);
+}
+
+.qa-item-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Severity Badges */
+.severity-badge {
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.severity-badge.critical {
+    background: #fecaca;
+    color: #991b1b;
+}
+
+[data-theme="dark"] .severity-badge.critical {
+    background: #7f1d1d;
+    color: #fca5a5;
+}
+
+.severity-badge.high {
+    background: #fed7aa;
+    color: #9a3412;
+}
+
+[data-theme="dark"] .severity-badge.high {
+    background: #7c2d12;
+    color: #fdba74;
+}
+
+.severity-badge.medium {
+    background: #fef08a;
+    color: #854d0e;
+}
+
+[data-theme="dark"] .severity-badge.medium {
+    background: #713f12;
+    color: #fde047;
+}
+
+/* Test Type Badges */
+.test-type-badge {
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: var(--accent-light);
+    color: var(--accent-dark);
+}
+
+.test-type-badge.regression {
+    background: #e0e7ff;
+    color: #4338ca;
+}
+
+[data-theme="dark"] .test-type-badge.regression {
+    background: #312e81;
+    color: #a5b4fc;
+}
+
+.test-type-badge.integration {
+    background: #fce7f3;
+    color: #be185d;
+}
+
+[data-theme="dark"] .test-type-badge.integration {
+    background: #831843;
+    color: #fbcfe8;
+}
+
+.qa-item-system {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.75rem;
+    color: var(--text-dim);
+}
+
+.qa-item-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+}
+
+.qa-item-description {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.qa-item-impact {
+    padding: 0.75rem;
+    background: var(--accent-light);
+    border-left: 3px solid var(--accent);
+    border-radius: 6px;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.qa-item-impact strong {
+    color: var(--text-primary);
+}
+
+.qa-item-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #16a34a;
+}
+
+[data-theme="dark"] .qa-item-status {
+    color: #4ade80;
+}
+
+.qa-item-status svg {
+    flex-shrink: 0;
+}
+
+/* Test Case Stats */
+.test-case-stats {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    margin-bottom: 0.75rem;
+}
+
+/* View More Link */
+.qa-view-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.qa-view-more:hover {
+    gap: 0.75rem;
+    color: var(--accent-dark);
+}
+
+/* QA Documentation Cards */
+.qa-docs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+.qa-doc-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.75rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.qa-doc-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent);
+}
+
+.qa-doc-icon {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-light);
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    color: var(--accent);
+}
+
+.qa-doc-card h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+}
+
+.qa-doc-card p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+    flex-grow: 1;
+}
+
+.qa-doc-link {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.qa-doc-link:hover {
+    color: var(--accent-dark);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .testing-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+    }
+
+    .qa-items-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .qa-docs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .qa-section-title {
+        font-size: 1.5rem;
+    }
+
+    .test-case-stats {
+        font-size: 0.7rem;
+    }
+}
