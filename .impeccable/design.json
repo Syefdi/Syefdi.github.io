@@ -52,31 +52,31 @@
       "neutral-bg-light": {
         "role": "neutral",
         "displayName": "Neutral Background Light",
-        "canonical": "oklch(98% 0 0)",
+        "canonical": "oklch(98% 0.02 230)",
         "tonalRamp": []
       },
       "neutral-surface-light": {
         "role": "neutral",
         "displayName": "Neutral Surface Light",
-        "canonical": "oklch(100% 0 0)",
+        "canonical": "oklch(100% 0.02 230)",
         "tonalRamp": []
       },
       "neutral-text-dark": {
         "role": "neutral",
         "displayName": "Neutral Text Dark",
-        "canonical": "oklch(15% 0 0)",
+        "canonical": "oklch(15% 0.02 230)",
         "tonalRamp": []
       },
       "neutral-bg-dark": {
         "role": "neutral",
         "displayName": "Neutral Background Dark",
-        "canonical": "oklch(15% 0 0)",
+        "canonical": "oklch(15% 0.02 230)",
         "tonalRamp": []
       },
       "neutral-surface-dark": {
         "role": "neutral",
         "displayName": "Neutral Surface Dark",
-        "canonical": "oklch(20% 0 0)",
+        "canonical": "oklch(20% 0.02 230)",
         "tonalRamp": []
       }
     },

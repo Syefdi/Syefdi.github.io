@@ -4,17 +4,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Syefdi Fasmawi Syaban | QA Professional Portfolio</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries">
-        // Cursor spotlight effect (desktop only)
-        if (window.matchMedia('(hover: hover)').matches) {
-            document.body.classList.add('has-spotlight');
-            document.addEventListener('mousemove', (e) => {
-                document.documentElement.style.setProperty('--mouse-x', e.clientX + 'px');
-                document.documentElement.style.setProperty('--mouse-y', e.clientY + 'px');
-            });
-        }
-
-    </script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;family=Fira+Code:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
@@ -113,16 +103,6 @@
                 },
             },
         }
-    
-        // Cursor spotlight effect (desktop only)
-        if (window.matchMedia('(hover: hover)').matches) {
-            document.body.classList.add('has-spotlight');
-            document.addEventListener('mousemove', (e) => {
-                document.documentElement.style.setProperty('--mouse-x', e.clientX + 'px');
-                document.documentElement.style.setProperty('--mouse-y', e.clientY + 'px');
-            });
-        }
-
     </script>
 <style>
         body {
@@ -188,19 +168,125 @@
             border-color: rgba(56, 189, 248, 0.6) !important;
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.2), 0 0 15px rgba(56, 189, 248, 0.15) !important;
         }
+        /* Mobile Touch Click Effect */
+        .card-hover-effect:active, .mobile-tap-active:active {
+            transform: scale(0.95) !important;
+        }
+
+        /* Mobile Hamburger Animation */
+        .ham-box {
+            display: inline-block;
+            position: relative;
+            width: 30px;
+            height: 24px;
+        }
+        .ham-box-inner {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: 30px;
+            height: 2px;
+            border-radius: 4px;
+            background-color: #8ed5ff; /* primary */
+            transition: transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+        }
+        .ham-box-inner::before, .ham-box-inner::after {
+            content: '';
+            display: block;
+            position: absolute;
+            right: 0;
+            height: 2px;
+            border-radius: 4px;
+            background-color: #8ed5ff;
+            transition: transform 0.15s ease;
+        }
+        .ham-box-inner::before {
+            width: 120%;
+            top: -10px;
+            transition: top 0.1s 0.25s ease-in, opacity 0.1s ease-in;
+        }
+        .ham-box-inner::after {
+            width: 80%;
+            bottom: -10px;
+            transition: bottom 0.1s 0.25s ease-in, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+        }
+
+        /* Hamburger Active State (X) */
+        .hamburger-active .ham-box-inner {
+            transform: rotate(225deg);
+            transition-delay: 0.12s;
+            transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+        .hamburger-active .ham-box-inner::before {
+            width: 100%;
+            top: 0;
+            opacity: 0;
+            transition: top 0.1s ease-out, opacity 0.1s 0.12s ease-out;
+        }
+        .hamburger-active .ham-box-inner::after {
+            width: 100%;
+            bottom: 0;
+            transform: rotate(-90deg);
+            transition: bottom 0.1s ease-out, transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+
+        /* Scroll Reveal Animation */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
     </style>
 </head>
 <body class="font-body-md text-body-md custom-scrollbar">
-<!-- Desktop Split Layout -->
-<div class="max-w-screen-xl mx-auto flex flex-col lg:flex-row min-h-screen lg:px-24">
+<!-- Desktop Split Layout wrapped for mobile blur -->
+<div id="content-wrapper" class="max-w-screen-xl mx-auto flex flex-col lg:flex-row min-h-screen lg:px-24 transition-all duration-300">
 <!-- TopNavBar (Mobile Only) -->
-<header class="lg:hidden flex justify-between items-center w-full px-4 h-16 fixed top-0 z-50 bg-surface/80 backdrop-blur-md shadow-sm">
+<header class="lg:hidden flex justify-between items-center w-full px-4 h-20 fixed top-0 z-50 bg-surface/80 backdrop-blur-md shadow-sm">
 <span class="font-headline-lg-mobile text-headline-lg-mobile font-extrabold text-primary">QA Portfolio</span>
 <div class="flex gap-4">
-<span class="material-symbols-outlined text-primary">menu</span>
+<button id="hamburger" aria-label="Toggle menu" aria-expanded="false" class="text-primary hover:text-primary-fixed-dim transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded-md p-2 z-50 relative">
+    <div class="ham-box">
+        <div class="ham-box-inner"></div>
+    </div>
+</button>
 </div>
 </header>
+
+<!-- Mobile Navigation Drawer Overlay (B.Chiang Style) -->
+<div id="mobile-menu" aria-hidden="true" class="fixed inset-0 z-40 hidden justify-end">
+    <!-- Drawer Content (Right Side) -->
+    <div class="relative w-[75vw] max-w-[400px] h-screen bg-surface-container-high p-8 flex flex-col justify-center items-center shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out border-l border-border-slate-700" id="mobile-menu-drawer">
+        <nav class="flex flex-col gap-8 w-full text-center">
+            <a href="#about" class="mobile-nav-link text-xl font-bold text-on-surface hover:text-primary transition-colors py-2 flex flex-col gap-1 items-center">
+                <span class="font-mono-label text-[10px] text-primary">01.</span>
+                About
+            </a>
+            <a href="#experience" class="mobile-nav-link text-xl font-bold text-on-surface hover:text-primary transition-colors py-2 flex flex-col gap-1 items-center">
+                <span class="font-mono-label text-[10px] text-primary">02.</span>
+                Experience
+            </a>
+            <a href="#portfolio" class="mobile-nav-link text-xl font-bold text-on-surface hover:text-primary transition-colors py-2 flex flex-col gap-1 items-center">
+                <span class="font-mono-label text-[10px] text-primary">03.</span>
+                Portfolio
+            </a>
+            <a href="#projects" class="mobile-nav-link text-xl font-bold text-on-surface hover:text-primary transition-colors py-2 flex flex-col gap-1 items-center">
+                <span class="font-mono-label text-[10px] text-primary">04.</span>
+                Projects
+            </a>
+            <a href="#certifications" class="mobile-nav-link text-xl font-bold text-on-surface hover:text-primary transition-colors py-2 flex flex-col gap-1 items-center">
+                <span class="font-mono-label text-[10px] text-primary">05.</span>
+                Certifications
+            </a>
+        </nav>
+        <a href="assets/documents/resume.pdf" target="_blank" class="mt-12 px-10 py-3 rounded-full border border-primary text-primary font-mono-label text-mono-label uppercase hover:bg-primary/10 transition-all">Resume</a>
+    </div>
+</div>
 <!-- Left Column (full height) -->
 <div class="hidden lg:block w-[48%]">
 <!-- SideNavBar (Sticky inside the column) -->
@@ -240,7 +326,7 @@
 <div class="flex flex-col gap-6">
 <div class="flex gap-4">
 <a aria-label="Email" class="text-on-surface-variant hover:text-primary transition-all p-2 -m-2" href="mailto:syefdifasmawi@gmail.com">
-    <span class="material-symbols-outlined">mail</span>
+    <span class="material-symbols-outlined" aria-hidden="true">mail</span>
 </a>
 <a aria-label="GitHub" class="text-on-surface-variant hover:text-primary transition-all p-2 -m-2" href="https://github.com/Syefdi" target="_blank" rel="noopener noreferrer">
     <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
@@ -258,7 +344,15 @@
 <!-- Main Content Area -->
 <main class="w-full lg:w-[52%] flex flex-col p-6 lg:py-24 gap-[120px]">
 <!-- Hero Section -->
-<section class="flex flex-col gap-8 pt-16 lg:pt-0" id="about">
+<section class="flex flex-col gap-8 pt-16 lg:pt-0 reveal-up" id="about">
+    <!-- Mobile Profile Header (Visible on Mobile/Tablet only) -->
+    <div class="lg:hidden flex flex-col gap-4 mb-4 border-b border-border-slate-700/30 pb-6">
+        <h1 class="font-headline-lg text-3xl font-bold text-on-surface">Syefdi Fasmawi Syaban</h1>
+        <p class="font-body-md text-sm text-primary font-semibold">Junior QA Tester</p>
+        <p class="font-body-md text-sm text-on-surface-variant leading-relaxed">
+            I find bugs before users do. Ensuring software reliability through systematic testing and meticulous documentation.
+        </p>
+    </div>
 <span class="font-mono-label text-mono-label text-primary uppercase tracking-widest">QA Professional</span>
 <h2 class="font-hero-lg text-hero-lg lg:text-hero-lg text-headline-lg-mobile text-on-surface">I find bugs before users do.</h2>
 <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl leading-relaxed">
@@ -278,7 +372,7 @@
 <div class="flex flex-col gap-4">
 <h4 class="font-headline-lg text-xl text-on-surface flex items-center gap-2">
                                 QA Tester · CV Gemilang Inti Teknologi
-                                <span class="material-symbols-outlined text-sm text-primary">north_east</span>
+                                <span class="material-symbols-outlined text-sm text-primary" aria-hidden="true">north_east</span>
 </h4>
 <p class="text-on-surface-variant leading-relaxed">
                                 Conduct end-to-end manual testing for enterprise systems including ERM, CRM, HRIS, DMS, and PD System. Responsible for creating test cases, executing test scenarios, documenting bug reports, and collaborating with developers to resolve issues before production deployment.
@@ -294,7 +388,7 @@
 </div>
 </section>
 <!-- Testing Portfolio (KEY SHOWCASE) -->
-<section class="flex flex-col gap-16" id="portfolio">
+<section class="flex flex-col gap-16 reveal-up" id="portfolio">
 <div class="flex flex-col gap-4">
 <h3 class="font-headline-lg text-headline-lg text-on-surface">Testing Portfolio</h3>
 <p class="text-on-surface-variant max-w-xl">Evidence of systematic quality assurance across diverse platforms.</p>
@@ -329,7 +423,7 @@
 <div class="flex flex-col gap-10">
 <!-- Item 1 -->
 <div class="group flex gap-5">
-<span class="material-symbols-outlined text-primary text-3xl mt-1">checklist_rtl</span>
+<span class="material-symbols-outlined text-primary text-3xl mt-1" aria-hidden="true">checklist_rtl</span>
 <div class="flex flex-col gap-2">
 <h5 class="font-bold text-lg text-on-surface group-hover:text-primary transition-colors">End-to-End Manual Testing</h5>
 <p class="text-on-surface-variant leading-relaxed">I walk through every user flow — login, data entry, form submission, edge cases — and document what breaks. Most of the 100+ bugs I've found came from testing scenarios that weren't in the spec.</p>
@@ -337,7 +431,7 @@
 </div>
 <!-- Item 2 -->
 <div class="group flex gap-5">
-<span class="material-symbols-outlined text-sev-high text-3xl mt-1">devices</span>
+<span class="material-symbols-outlined text-sev-high text-3xl mt-1" aria-hidden="true">devices</span>
 <div class="flex flex-col gap-2">
 <h5 class="font-bold text-lg text-on-surface group-hover:text-primary transition-colors">Cross-Browser & Responsive Checks</h5>
 <p class="text-on-surface-variant leading-relaxed">I open every page in Chrome, Firefox, and on mobile. Misaligned buttons, broken layouts, and missing elements — I catch them before they go live using DevTools.</p>
@@ -345,7 +439,7 @@
 </div>
 <!-- Item 3 -->
 <div class="group flex gap-5">
-<span class="material-symbols-outlined text-sev-medium text-3xl mt-1">edit_note</span>
+<span class="material-symbols-outlined text-sev-medium text-3xl mt-1" aria-hidden="true">edit_note</span>
 <div class="flex flex-col gap-2">
 <h5 class="font-bold text-lg text-on-surface group-hover:text-primary transition-colors">Bug Reporting & Documentation</h5>
 <p class="text-on-surface-variant leading-relaxed">Every bug I find gets a clear report: steps to reproduce, expected vs actual, screenshots, and severity level. I use Jira for tracking and make sure devs can fix it without asking follow-up questions.</p>
@@ -358,56 +452,56 @@
 <div class="flex flex-col gap-6">
 <h4 class="font-mono-label text-mono-label text-primary uppercase tracking-wider">Testing Areas</h4>
 <div class="flex flex-col">
-    <a href="javascript:void(0)" onclick="openModal('erm')" class="flex flex-col py-4 border-b border-border-slate-700/50 group hover:bg-surface-container-highest/20 transition-colors -mx-4 px-4 rounded-xl">
+    <button type="button" aria-haspopup="dialog" aria-expanded="false" onclick="openModal('erm')" class="w-full text-left flex flex-col py-4 border-b border-border-slate-700/50 group hover:bg-surface-container-highest/20 transition-colors -mx-4 px-4 rounded-xl">
         <div class="flex items-center gap-3 mb-1">
-            <span class="material-symbols-outlined text-primary text-xl group-hover:scale-110 transition-transform">receipt_long</span>
+            <span class="material-symbols-outlined text-primary text-xl group-hover:scale-110 transition-transform" aria-hidden="true">receipt_long</span>
             <h5 class="font-bold text-on-surface group-hover:text-primary transition-colors flex items-center gap-1">
                 ERM System
-                <span class="material-symbols-outlined text-[16px] opacity-0 group-hover:opacity-100 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all">arrow_outward</span>
+                <span class="material-symbols-outlined text-[16px] opacity-0 group-hover:opacity-100 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all" aria-hidden="true">arrow_outward</span>
             </h5>
         </div>
         <p class="text-sm text-on-surface-variant pl-8">Risk assessment workflows, mitigation tracking, and compliance modules.</p>
-    </a>
-    <a href="javascript:void(0)" onclick="openModal('crm')" class="flex flex-col py-4 border-b border-border-slate-700/50 group hover:bg-surface-container-highest/20 transition-colors -mx-4 px-4 rounded-xl">
+    </button>
+    <button type="button" aria-haspopup="dialog" aria-expanded="false" onclick="openModal('crm')" class="w-full text-left flex flex-col py-4 border-b border-border-slate-700/50 group hover:bg-surface-container-highest/20 transition-colors -mx-4 px-4 rounded-xl">
         <div class="flex items-center gap-3 mb-1">
-            <span class="material-symbols-outlined text-primary text-xl group-hover:scale-110 transition-transform">support_agent</span>
+            <span class="material-symbols-outlined text-primary text-xl group-hover:scale-110 transition-transform" aria-hidden="true">support_agent</span>
             <h5 class="font-bold text-on-surface group-hover:text-primary transition-colors flex items-center gap-1">
                 CRM System
-                <span class="material-symbols-outlined text-[16px] opacity-0 group-hover:opacity-100 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all">arrow_outward</span>
+                <span class="material-symbols-outlined text-[16px] opacity-0 group-hover:opacity-100 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all" aria-hidden="true">arrow_outward</span>
             </h5>
         </div>
         <p class="text-sm text-on-surface-variant pl-8">Customer data management, permissions, and session handling.</p>
-    </a>
-    <a href="javascript:void(0)" onclick="openModal('dms')" class="flex flex-col py-4 border-b border-border-slate-700/50 group hover:bg-surface-container-highest/20 transition-colors -mx-4 px-4 rounded-xl">
+    </button>
+    <button type="button" aria-haspopup="dialog" aria-expanded="false" onclick="openModal('dms')" class="w-full text-left flex flex-col py-4 border-b border-border-slate-700/50 group hover:bg-surface-container-highest/20 transition-colors -mx-4 px-4 rounded-xl">
         <div class="flex items-center gap-3 mb-1">
-            <span class="material-symbols-outlined text-primary text-xl group-hover:scale-110 transition-transform">folder_open</span>
+            <span class="material-symbols-outlined text-primary text-xl group-hover:scale-110 transition-transform" aria-hidden="true">folder_open</span>
             <h5 class="font-bold text-on-surface group-hover:text-primary transition-colors flex items-center gap-1">
                 DMS System
-                <span class="material-symbols-outlined text-[16px] opacity-0 group-hover:opacity-100 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all">arrow_outward</span>
+                <span class="material-symbols-outlined text-[16px] opacity-0 group-hover:opacity-100 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all" aria-hidden="true">arrow_outward</span>
             </h5>
         </div>
         <p class="text-sm text-on-surface-variant pl-8">Document uploads and file integrity testing.</p>
-    </a>
-    <a href="javascript:void(0)" onclick="openModal('hris')" class="flex flex-col py-4 border-b border-border-slate-700/50 group hover:bg-surface-container-highest/20 transition-colors -mx-4 px-4 rounded-xl">
+    </button>
+    <button type="button" aria-haspopup="dialog" aria-expanded="false" onclick="openModal('hris')" class="w-full text-left flex flex-col py-4 border-b border-border-slate-700/50 group hover:bg-surface-container-highest/20 transition-colors -mx-4 px-4 rounded-xl">
         <div class="flex items-center gap-3 mb-1">
-            <span class="material-symbols-outlined text-primary text-xl group-hover:scale-110 transition-transform">badge</span>
+            <span class="material-symbols-outlined text-primary text-xl group-hover:scale-110 transition-transform" aria-hidden="true">badge</span>
             <h5 class="font-bold text-on-surface group-hover:text-primary transition-colors flex items-center gap-1">
                 HRIS System
-                <span class="material-symbols-outlined text-[16px] opacity-0 group-hover:opacity-100 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all">arrow_outward</span>
+                <span class="material-symbols-outlined text-[16px] opacity-0 group-hover:opacity-100 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all" aria-hidden="true">arrow_outward</span>
             </h5>
         </div>
         <p class="text-sm text-on-surface-variant pl-8">Human Resource workflows and data privacy testing.</p>
-    </a>
-    <a href="javascript:void(0)" onclick="openModal('pd')" class="flex flex-col py-4 border-b border-border-slate-700/50 group hover:bg-surface-container-highest/20 transition-colors -mx-4 px-4 rounded-xl border-b-transparent">
+    </button>
+    <button type="button" aria-haspopup="dialog" aria-expanded="false" onclick="openModal('pd')" class="w-full text-left flex flex-col py-4 border-b border-border-slate-700/50 group hover:bg-surface-container-highest/20 transition-colors -mx-4 px-4 rounded-xl border-b-transparent">
         <div class="flex items-center gap-3 mb-1">
-            <span class="material-symbols-outlined text-primary text-xl group-hover:scale-110 transition-transform">inventory_2</span>
+            <span class="material-symbols-outlined text-primary text-xl group-hover:scale-110 transition-transform" aria-hidden="true">inventory_2</span>
             <h5 class="font-bold text-on-surface group-hover:text-primary transition-colors flex items-center gap-1">
                 PD System
-                <span class="material-symbols-outlined text-[16px] opacity-0 group-hover:opacity-100 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all">arrow_outward</span>
+                <span class="material-symbols-outlined text-[16px] opacity-0 group-hover:opacity-100 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all" aria-hidden="true">arrow_outward</span>
             </h5>
         </div>
         <p class="text-sm text-on-surface-variant pl-8">Product distribution and logistics workflows.</p>
-    </a>
+    </button>
 </div>
 </div>
 <div class="flex flex-col gap-6 pt-4">
@@ -415,8 +509,8 @@
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
     <a href="docs/smoke-test.html" class="flex flex-col gap-3 p-6 rounded-2xl border border-border-slate-700 bg-surface-container-lowest hover:bg-surface-container-highest/50 hover:border-primary/50 transition-all group card-hover-effect">
         <div class="flex justify-between items-start">
-            <span class="material-symbols-outlined text-primary text-3xl group-hover:scale-110 transition-transform">fact_check</span>
-            <span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 group-hover:-translate-y-1 group-hover:translate-x-1 transition-all">arrow_outward</span>
+            <span class="material-symbols-outlined text-primary text-3xl group-hover:scale-110 transition-transform" aria-hidden="true">fact_check</span>
+            <span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 group-hover:-translate-y-1 group-hover:translate-x-1 transition-all" aria-hidden="true">arrow_outward</span>
         </div>
         <div>
             <h5 class="font-bold text-on-surface group-hover:text-primary transition-colors text-lg">Smoke Test Checklist</h5>
@@ -425,8 +519,8 @@
     </a>
     <a href="docs/bug-report.html" class="flex flex-col gap-3 p-6 rounded-2xl border border-border-slate-700 bg-surface-container-lowest hover:bg-surface-container-highest/50 hover:border-primary/50 transition-all group card-hover-effect">
         <div class="flex justify-between items-start">
-            <span class="material-symbols-outlined text-primary text-3xl group-hover:scale-110 transition-transform">bug_report</span>
-            <span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 group-hover:-translate-y-1 group-hover:translate-x-1 transition-all">arrow_outward</span>
+            <span class="material-symbols-outlined text-primary text-3xl group-hover:scale-110 transition-transform" aria-hidden="true">bug_report</span>
+            <span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 group-hover:-translate-y-1 group-hover:translate-x-1 transition-all" aria-hidden="true">arrow_outward</span>
         </div>
         <div>
             <h5 class="font-bold text-on-surface group-hover:text-primary transition-colors text-lg">Bug Report Template</h5>
@@ -435,8 +529,8 @@
     </a>
     <a href="docs/test-cases.html" class="flex flex-col gap-3 p-6 rounded-2xl border border-border-slate-700 bg-surface-container-lowest hover:bg-surface-container-highest/50 hover:border-primary/50 transition-all group card-hover-effect">
         <div class="flex justify-between items-start">
-            <span class="material-symbols-outlined text-primary text-3xl group-hover:scale-110 transition-transform">rule</span>
-            <span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 group-hover:-translate-y-1 group-hover:translate-x-1 transition-all">arrow_outward</span>
+            <span class="material-symbols-outlined text-primary text-3xl group-hover:scale-110 transition-transform" aria-hidden="true">rule</span>
+            <span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 group-hover:-translate-y-1 group-hover:translate-x-1 transition-all" aria-hidden="true">arrow_outward</span>
         </div>
         <div>
             <h5 class="font-bold text-on-surface group-hover:text-primary transition-colors text-lg">Test Case Format</h5>
@@ -445,8 +539,8 @@
     </a>
     <a href="docs/metrics.html" class="flex flex-col gap-3 p-6 rounded-2xl border border-border-slate-700 bg-surface-container-lowest hover:bg-surface-container-highest/50 hover:border-primary/50 transition-all group card-hover-effect">
         <div class="flex justify-between items-start">
-            <span class="material-symbols-outlined text-primary text-3xl group-hover:scale-110 transition-transform">dashboard</span>
-            <span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 group-hover:-translate-y-1 group-hover:translate-x-1 transition-all">arrow_outward</span>
+            <span class="material-symbols-outlined text-primary text-3xl group-hover:scale-110 transition-transform" aria-hidden="true">dashboard</span>
+            <span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 group-hover:-translate-y-1 group-hover:translate-x-1 transition-all" aria-hidden="true">arrow_outward</span>
         </div>
         <div>
             <h5 class="font-bold text-on-surface group-hover:text-primary transition-colors text-lg">Metrics Dashboard</h5>
@@ -458,15 +552,15 @@
 </div>
 </section>
 <!-- Projects Section -->
-<section class="flex flex-col gap-12" id="projects">
+<section class="flex flex-col gap-12 reveal-up" id="projects">
 <h3 class="font-headline-lg text-headline-lg text-on-surface">Featured Tools</h3>
 <!-- Main Project Card -->
 <a href="https://github.com/Syefdi/bugReport" target="_blank" rel="noopener noreferrer" aria-label="View Bug Report Management Tool on GitHub" class="relative rounded-2xl overflow-hidden block group border border-border-slate-700 card-hover-effect">
 <div class="w-full h-80 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="A futuristic dark-themed user interface of a bug management software dashboard. The screen shows detailed analytics graphs, code snippets, and severity indicators in vibrant greens and reds against a deep navy background. The lighting is low-key with a cyber-tech aesthetic, emphasizing high-fidelity digital precision and systematic organization." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDWvKVyh9OWFoeIhQ4SGwVBOpwDNvDDMbIzU8Zw0woq0DzG_sqOeSL-pV3AT7uHk32FK1iNsyhZyQXqK-zGA3hAD3Nq4hlgAmRJInOAWtizfpiOyoPTCPxmkabKuMp_OabRScYnopP7Fcm1CohBmDVGxcTAW2kyJWSsbXkFG6epyBuV0EqXLJat9Dnr5tHmSi8tzDuPFRbBnCRGYZom1-TLOyfS1nK6ToHScSMpWn250VuOPs0zu_VCOCSrp14EkXKY9Z3czpQmILP0')"></div>
 <div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent p-8 flex flex-col justify-end gap-4">
 <div class="flex justify-between items-center">
-<h4 class="font-headline-lg text-2xl text-on-surface group-hover:text-primary transition-colors flex items-center gap-2">Bug Report Management Tool <span class="material-symbols-outlined text-xl opacity-0 group-hover:opacity-100 group-hover:-translate-y-1 group-hover:translate-x-1 transition-all">arrow_outward</span></h4>
-<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">code</span>
+<h4 class="font-headline-lg text-2xl text-on-surface group-hover:text-primary transition-colors flex items-center gap-2">Bug Report Management Tool <span class="material-symbols-outlined text-xl opacity-0 group-hover:opacity-100 group-hover:-translate-y-1 group-hover:translate-x-1 transition-all" aria-hidden="true">arrow_outward</span></h4>
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform" aria-hidden="true">code</span>
 </div>
 <p class="text-on-surface-variant text-sm max-w-xl">A custom-built internal tool designed to streamline bug tracking for distributed teams. Includes automated priority weighting and Slack integration.</p>
 <div class="flex gap-3">
@@ -483,8 +577,8 @@
 
 
 </section>
-<!-- Skills & Certs Section -->
-<section class="flex flex-col gap-24" id="certifications">
+<!-- Skills & Certifications Section -->
+<section class="flex flex-col gap-24 reveal-up" id="certifications">
 
 <!-- Skills Block -->
 <div class="flex flex-col gap-8">
@@ -493,7 +587,7 @@
     <div class="p-8 rounded-3xl border border-border-slate-700 bg-surface-container-lowest card-hover-effect">
         <div class="flex items-center gap-4 mb-6">
             <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                <span class="material-symbols-outlined text-primary text-2xl">bug_report</span>
+                <span class="material-symbols-outlined text-primary text-2xl" aria-hidden="true">bug_report</span>
             </div>
             <span class="font-mono-label text-mono-label text-text-slate-400 uppercase tracking-widest">Testing Stack</span>
         </div>
@@ -509,7 +603,7 @@
     <div class="p-8 rounded-3xl border border-border-slate-700 bg-surface-container-lowest card-hover-effect">
         <div class="flex items-center gap-4 mb-6">
             <div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center">
-                <span class="material-symbols-outlined text-on-surface text-2xl">build</span>
+                <span class="material-symbols-outlined text-on-surface text-2xl" aria-hidden="true">build</span>
             </div>
             <span class="font-mono-label text-mono-label text-text-slate-400 uppercase tracking-widest">Tools & Tech</span>
         </div>
@@ -575,13 +669,13 @@
 </div>
 </div>
 </section>
-<!-- Contact Section -->
-<section class="flex flex-col gap-8 mb-20" id="contact">
+<!-- Contact / CTA Section -->
+<section class="flex flex-col gap-8 mb-20 reveal-up" id="contact">
 <h3 class="font-headline-lg text-headline-lg text-on-surface">Get In Touch</h3>
 <p class="text-on-surface-variant max-w-xl">I'm open to new opportunities. Feel free to reach out whether it's about work, a project, or just to say hi.</p>
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 <!-- WhatsApp -->
-<a class="card-hover-effect sm:col-span-2 group bg-surface-container border border-border-slate-700 p-6 rounded-xl flex items-center gap-5 hover:border-secondary transition-all" href="https://wa.me/6282123439121?text=Hi%20Syefdi%2C%20saya%20tertarik%20dengan%20portfolio%20Anda." target="_blank" rel="noopener noreferrer">
+<a class="card-hover-effect sm:col-span-2 group bg-surface-container border border-border-slate-700 p-6 rounded-xl flex items-center gap-5 hover:border-secondary transition-all active:scale-[0.99]" href="https://wa.me/6282123439121?text=Hi%20Syefdi%2C%20saya%20tertarik%20dengan%20portfolio%20Anda." target="_blank" rel="noopener noreferrer">
 <div class="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center flex-shrink-0">
 <svg viewBox="0 0 24 24" width="22" height="22" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </div>
@@ -592,16 +686,16 @@
 </div>
 <p class="text-sm text-on-surface-variant">+62 821-2343-9121</p>
 </div>
-<span class="material-symbols-outlined text-on-surface-variant group-hover:text-secondary transition-colors">north_east</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-secondary transition-colors" aria-hidden="true">north_east</span>
 </a>
 <!-- Email -->
 <a class="card-hover-effect group bg-surface-container border border-border-slate-700 p-6 rounded-xl flex items-center gap-4 hover:border-primary transition-all overflow-hidden" href="mailto:syefdifasmawi@gmail.com">
-<span class="material-symbols-outlined text-primary text-2xl flex-shrink-0">mail</span>
+<span class="material-symbols-outlined text-primary text-2xl flex-shrink-0" aria-hidden="true">mail</span>
 <div class="flex-1 min-w-0">
 <span class="font-bold text-on-surface block">Email</span>
 <p class="text-sm text-on-surface-variant truncate">syefdifasmawi@gmail.com</p>
 </div>
-<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors flex-shrink-0 group-hover:-translate-y-1 group-hover:translate-x-1 duration-300">north_east</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors flex-shrink-0 group-hover:-translate-y-1 group-hover:translate-x-1 duration-300" aria-hidden="true">north_east</span>
 </a>
 <!-- LinkedIn -->
 <a class="card-hover-effect group bg-surface-container border border-border-slate-700 p-6 rounded-xl flex items-center gap-4 hover:border-primary transition-all overflow-hidden" href="https://www.linkedin.com/in/syefdi-fasmawi-syaban-6b6531337/" target="_blank" rel="noopener noreferrer">
@@ -610,7 +704,7 @@
 <span class="font-bold text-on-surface block">LinkedIn</span>
 <p class="text-sm text-on-surface-variant truncate">Syefdi Fasmawi Syaban</p>
 </div>
-<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors flex-shrink-0 group-hover:-translate-y-1 group-hover:translate-x-1 duration-300">north_east</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors flex-shrink-0 group-hover:-translate-y-1 group-hover:translate-x-1 duration-300" aria-hidden="true">north_east</span>
 </a>
 </div>
 <footer class="mt-8 pt-8 border-t border-border-slate-700">
@@ -622,19 +716,19 @@
 <!-- BottomNavBar (Mobile Only) -->
 <nav class="lg:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-4 bg-surface-container-highest border-t border-border-slate-700 shadow-lg">
 <a class="flex flex-col items-center justify-center text-on-surface-variant" href="#about">
-<span class="material-symbols-outlined">account_circle</span>
+<span class="material-symbols-outlined" aria-hidden="true">account_circle</span>
 <span class="font-mono-label text-[10px]">About</span>
 </a>
 <a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-3 py-1" href="#portfolio">
-<span class="material-symbols-outlined">pest_control</span>
+<span class="material-symbols-outlined" aria-hidden="true">pest_control</span>
 <span class="font-mono-label text-[10px]">Bugs</span>
 </a>
 <a class="flex flex-col items-center justify-center text-on-surface-variant" href="#projects">
-<span class="material-symbols-outlined">terminal</span>
+<span class="material-symbols-outlined" aria-hidden="true">terminal</span>
 <span class="font-mono-label text-[10px]">Work</span>
 </a>
 <a class="flex flex-col items-center justify-center text-on-surface-variant" href="#contact">
-<span class="material-symbols-outlined">send</span>
+<span class="material-symbols-outlined" aria-hidden="true">send</span>
 <span class="font-mono-label text-[10px]">Mail</span>
 </a>
 </nav>
@@ -643,7 +737,7 @@
     <div class="bg-surface-container border border-border-slate-700 rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl relative transform scale-95 transition-transform duration-300" id="project-modal-content">
         <!-- Close Button -->
         <button onclick="closeModal()" class="absolute top-6 right-6 text-on-surface-variant hover:text-primary transition-colors focus:outline-none">
-            <span class="material-symbols-outlined text-2xl">close</span>
+            <span class="material-symbols-outlined text-2xl" aria-hidden="true">close</span>
         </button>
         <!-- Modal Content injected via JS -->
         <div class="p-8 md:p-10" id="modal-dynamic-content">
@@ -717,6 +811,35 @@
             }
         };
 
+        let previousActiveElement = null;
+
+        function trapFocus(element) {
+            const focusableEls = element.querySelectorAll('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])');
+            if (focusableEls.length === 0) return;
+            const firstFocusableEl = focusableEls[0];  
+            const lastFocusableEl = focusableEls[focusableEls.length - 1];
+            
+            element.addEventListener('keydown', function(e) {
+                const isTabPressed = (e.key === 'Tab' || e.keyCode === 9);
+                if (!isTabPressed) { return; }
+                
+                if (e.shiftKey) { 
+                    if (document.activeElement === firstFocusableEl) {
+                        lastFocusableEl.focus();
+                        e.preventDefault();
+                    }
+                } else {
+                    if (document.activeElement === lastFocusableEl) {
+                        firstFocusableEl.focus();
+                        e.preventDefault();
+                    }
+                }
+            });
+            setTimeout(() => {
+                firstFocusableEl.focus();
+            }, 50);
+        }
+
         function openModal(projectId) {
             const modal = document.getElementById('project-modal');
             const contentContainer = document.getElementById('modal-dynamic-content');
@@ -726,13 +849,13 @@
             if (!data) return;
 
             // Generate HTML for lists
-            const scopeHtml = data.scope.map(item => `<li class="flex items-center gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-[16px]">check_circle</span> ${item}</li>`).join('');
+            const scopeHtml = data.scope.map(item => `<li class="flex items-center gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-[16px]" aria-hidden="true">check_circle</span> ${item}</li>`).join('');
             const actionsHtml = data.actions.map(item => `<li class="text-sm text-on-surface-variant leading-relaxed ml-4 list-disc">${item}</li>`).join('');
 
             contentContainer.innerHTML = `
                 <div class="flex items-center gap-4 mb-6 pr-8">
                     <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 border border-primary/20">
-                        <span class="material-symbols-outlined text-primary text-2xl">${data.icon}</span>
+                        <span class="material-symbols-outlined text-primary text-2xl" aria-hidden="true">${data.icon}</span>
                     </div>
                     <div>
                         <h3 class="font-headline-lg text-2xl font-bold text-on-surface leading-tight">${data.title}</h3>
@@ -758,13 +881,16 @@
             `;
 
             // Show modal
+            previousActiveElement = document.activeElement;
             modal.classList.remove('hidden');
             modal.classList.add('flex');
+            modal.setAttribute('aria-expanded', 'true');
             // Small delay to allow display:flex to apply before animating opacity
             setTimeout(() => {
                 modal.classList.remove('opacity-0');
                 modalInner.classList.remove('scale-95');
                 modalInner.classList.add('scale-100');
+                trapFocus(modal);
             }, 10);
             
             // Prevent body scroll
@@ -778,11 +904,15 @@
             modal.classList.add('opacity-0');
             modalInner.classList.remove('scale-100');
             modalInner.classList.add('scale-95');
+            modal.setAttribute('aria-expanded', 'false');
             
             setTimeout(() => {
                 modal.classList.add('hidden');
                 modal.classList.remove('flex');
                 document.body.style.overflow = '';
+                if (previousActiveElement) {
+                    previousActiveElement.focus();
+                }
             }, 300);
         }
 
@@ -820,11 +950,12 @@
             threshold: 0
         };
 
+        const navLinks = document.querySelectorAll('#sidebar-nav a.nav-item');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const id = entry.target.getAttribute('id');
-                    document.querySelectorAll('#sidebar-nav a.nav-item').forEach(navLink => {
+                    navLinks.forEach(navLink => {
                         navLink.classList.remove('text-primary', 'font-bold');
                         navLink.classList.add('text-on-surface-variant', 'font-medium');
                         const line = navLink.querySelector('.nav-line');
@@ -853,11 +984,76 @@
         // Cursor spotlight effect (desktop only)
         if (window.matchMedia('(hover: hover)').matches) {
             document.body.classList.add('has-spotlight');
+            let ticking = false;
             document.addEventListener('mousemove', (e) => {
-                document.documentElement.style.setProperty('--mouse-x', e.clientX + 'px');
-                document.documentElement.style.setProperty('--mouse-y', e.clientY + 'px');
-            });
+                if (!ticking) {
+                    window.requestAnimationFrame(() => {
+                        document.documentElement.style.setProperty('--mouse-x', e.clientX + 'px');
+                        document.documentElement.style.setProperty('--mouse-y', e.clientY + 'px');
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }, { passive: true });
         }
+
+        // Mobile Nav Logic (B.Chiang Reference)
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
+        const contentWrapper = document.getElementById('content-wrapper');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        let isMenuOpen = false;
+
+        function toggleMobileMenu() {
+            isMenuOpen = !isMenuOpen;
+            hamburger.setAttribute('aria-expanded', isMenuOpen);
+            
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('flex');
+                hamburger.classList.add('hamburger-active');
+                contentWrapper.classList.add('blur-sm', 'brightness-50', 'pointer-events-none');
+                
+                setTimeout(() => {
+                    mobileMenuDrawer.classList.remove('translate-x-full');
+                    mobileMenuDrawer.classList.add('translate-x-0');
+                }, 10);
+                document.body.style.overflow = 'hidden';
+            } else {
+                hamburger.classList.remove('hamburger-active');
+                mobileMenuDrawer.classList.remove('translate-x-0');
+                mobileMenuDrawer.classList.add('translate-x-full');
+                contentWrapper.classList.remove('blur-sm', 'brightness-50', 'pointer-events-none');
+                
+                setTimeout(() => {
+                    mobileMenu.classList.remove('flex');
+                    mobileMenu.classList.add('hidden');
+                }, 300);
+                document.body.style.overflow = '';
+            }
+        }
+
+        hamburger.addEventListener('click', toggleMobileMenu);
+        mobileMenu.addEventListener('click', (e) => {
+            // Close if clicking outside the drawer
+            if (e.target === mobileMenu) toggleMobileMenu();
+        });
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', toggleMobileMenu);
+        });
+
+        // Scroll Reveal Logic
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        
+        document.querySelectorAll('.reveal-up').forEach(el => revealObserver.observe(el));
 
     </script>
 </body></html>
