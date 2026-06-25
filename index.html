@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Syefdi Fasmawi Syaban | QA Professional Portfolio</title>
-<link rel="icon" type="image/png" href="assets/images/favicon.png"/>
+<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;family=Fira+Code:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -106,6 +106,29 @@
         }
     </script>
 <style>
+        /* Splash Screen Animations */
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-60px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(60px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes fadeOutSplash {
+            to { opacity: 0; visibility: hidden; pointer-events: none; }
+        }
+        .s-left {
+            animation: slideInLeft 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .s-right {
+            animation: slideInRight 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        #splash-screen {
+            animation: fadeOutSplash 0.6s ease-in forwards;
+            animation-delay: 1.5s;
+        }
+        
         body {
             background-color: #0b1326;
             color: #dae2fd;
@@ -245,6 +268,30 @@
     </style>
 </head>
 <body class="font-body-md text-body-md custom-scrollbar">
+
+    <!-- Splash Screen Intro -->
+    <div id="splash-screen" class="fixed inset-0 z-[100] bg-[#0b1326] flex items-center justify-center pointer-events-auto">
+        <svg viewBox="0 0 100 100" width="80" height="80" xmlns="http://www.w3.org/2000/svg">
+            <g stroke="#0ea5e9" stroke-width="12" stroke-linecap="square" fill="none" stroke-linejoin="miter">
+                <!-- Left/Top part moving in from left -->
+                <path class="s-left" d="M 80 20 L 20 20 L 20 50 L 65 50" />
+                <!-- Right/Bottom part moving in from right -->
+                <path class="s-right" d="M 20 80 L 80 80 L 80 50 L 35 50" />
+            </g>
+        </svg>
+    </div>
+
+    <!-- Script to remove splash screen from DOM entirely after animation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const splash = document.getElementById('splash-screen');
+                if (splash) {
+                    splash.remove();
+                }
+            }, 2500); // 1.5s delay + 0.6s animation + buffer
+        });
+    </script>
 <!-- Desktop Split Layout wrapped for mobile blur -->
 <div id="content-wrapper" class="max-w-screen-xl mx-auto flex flex-col lg:flex-row min-h-screen lg:px-24 transition-all duration-300">
 <!-- TopNavBar (Mobile Only) -->
