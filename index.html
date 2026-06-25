@@ -107,22 +107,17 @@
     </script>
 <style>
         /* Splash Screen Animations */
-        @keyframes slideInLeft {
-            from { opacity: 0; transform: translateX(-60px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes slideInRight {
-            from { opacity: 0; transform: translateX(60px); }
-            to { opacity: 1; transform: translateX(0); }
+        @keyframes drawLine {
+            from { stroke-dashoffset: 100; }
+            to { stroke-dashoffset: 0; }
         }
         @keyframes fadeOutSplash {
             to { opacity: 0; visibility: hidden; pointer-events: none; }
         }
-        .s-left {
-            animation: slideInLeft 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        .s-right {
-            animation: slideInRight 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        .s-line {
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
+            animation: drawLine 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
         }
         #splash-screen {
             animation: fadeOutSplash 0.6s ease-in forwards;
@@ -272,11 +267,11 @@
     <!-- Splash Screen Intro -->
     <div id="splash-screen" class="fixed inset-0 z-[100] bg-[#0b1326] flex items-center justify-center pointer-events-auto">
         <svg viewBox="0 0 100 100" width="80" height="80" xmlns="http://www.w3.org/2000/svg">
-            <g stroke="#0ea5e9" stroke-width="12" stroke-linecap="square" fill="none" stroke-linejoin="miter">
-                <!-- Left/Top part moving in from left -->
-                <path class="s-left" d="M 80 20 L 20 20 L 20 50 L 65 50" />
-                <!-- Right/Bottom part moving in from right -->
-                <path class="s-right" d="M 20 80 L 80 80 L 80 50 L 35 50" />
+            <g stroke="#8ed5ff" stroke-width="10" stroke-linecap="round" fill="none">
+                <!-- Top curve drawing from right to center -->
+                <path class="s-line" pathLength="100" d="M 75 20 C 25 20, 25 40, 50 50" />
+                <!-- Bottom curve drawing from left to center -->
+                <path class="s-line" pathLength="100" d="M 25 80 C 75 80, 75 60, 50 50" />
             </g>
         </svg>
     </div>
