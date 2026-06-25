@@ -42,7 +42,7 @@
     </a>
     
     <header class="mb-12 border-b border-border-slate-700 pb-8">
-        <h1 class="text-3xl md:text-4xl font-bold text-on-surface mb-4">Bug Report - Template & Contoh</h1>
+        <h1 class="text-3xl md:text-4xl font-bold text-on-surface mb-4">Bug Report - Template & Real Examples</h1>
         <div class="flex flex-col gap-2 font-mono text-sm text-primary">
             <p>Project: ERM (Enterprise Risk Management) Revamp V3 & CRMX</p>
             <p>Tester: Syefdi Fasmawi Syaban</p>
@@ -53,12 +53,12 @@
         
         <section>
             <h2 class="text-2xl font-bold text-on-surface mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-primary" aria-hidden="true">article</span> Template Bug Report</h2>
-            <p class="text-on-surface-variant mb-4">Format standar yang digunakan untuk melaporkan anomali sistem secara komprehensif.</p>
-<pre><code>Title            : [ID-XXX] Singkat, spesifik, action-oriented
+            <p class="text-on-surface-variant mb-4">Standard format used to comprehensively report system anomalies.</p>
+<pre><code>Title            : [ID-XXX] Concise, specific, action-oriented
 Application      : ERM V3 / CRMX
 Environment      : Production / Staging / Dev
 Browser/OS       : Chrome 124 / Windows 10
-Tester           : [Nama]
+Tester           : [Name]
 Date Found       : YYYY-MM-DD
 Severity         : Critical / High / Medium / Low
 Priority         : P1 / P2 / P3 / P4
@@ -70,21 +70,21 @@ Steps to Reproduce:
   3. [Step 3]
 
 Expected Result  :
-  [Behavior yang seharusnya terjadi]
+  [What the system should do]
 
 Actual Result    :
-  [Behavior yang terjadi]
+  [What the system actually does]
 
 Attachments      : [screenshot / video / log]
 Notes            :
-  [Informasi tambahan, risk number contoh, user login]</code></pre>
+  [Additional information, example risk numbers, test credentials]</code></pre>
         </section>
 
         <section>
-            <h2 class="text-2xl font-bold text-error mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-error" aria-hidden="true">bug_report</span> Contoh Bug Kritis dari Data Real</h2>
-            <p class="text-on-surface-variant mb-4">Laporan nyata dari kegagalan cron job pada sistem PostgreSQL.</p>
-<pre><code class="text-error/80">Title            : [ERM-CRON-001] Cron Job mail-mitigation-reminder gagal dieksekusi
-                   akibat inkompatibilitas fungsi DATE_FORMAT() di PostgreSQL
+            <h2 class="text-2xl font-bold text-error mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-error" aria-hidden="true">bug_report</span> Critical Bug Example from Real Data</h2>
+            <p class="text-on-surface-variant mb-4">Actual report of a cron job failure in the PostgreSQL system.</p>
+<pre><code class="text-error/80">Title            : [ERM-CRON-001] Cron Job mail-mitigation-reminder failed to execute
+                   due to DATE_FORMAT() function incompatibility in PostgreSQL
 
 Application      : ERM V3
 Environment      : Dev (ermdev.abm-investama.com)
@@ -96,38 +96,36 @@ Priority         : P1
 Status           : Open
 
 Steps to Reproduce:
-  1. Login ke server ERM V3.
-  2. Jalankan cron job endpoint:
+  1. Login to the ERM V3 server.
+  2. Trigger the cron job endpoint:
      GET /api/mail/mitigation/reminder
-  3. Observasi response atau log server.
+  3. Observe the response or server log.
 
 Expected Result  :
-  Cron job berjalan sukses. Email reminder mitigation update
-  terkirim ke seluruh PIC yang belum melakukan update pada
-  periode berjalan.
+  Cron job executes successfully. Mitigation update reminder emails
+  are sent to all PICs who haven't updated in the current period.
 
 Actual Result    :
-  Cron job gagal dengan error:
+  Cron job fails with error:
   "Undefined function DATE_FORMAT"
-  Database yang digunakan adalah PostgreSQL, namun query pada
-  cron job menggunakan fungsi DATE_FORMAT() yang merupakan
-  sintaks MySQL. Di PostgreSQL, fungsi yang valid adalah
-  TO_CHAR(). Akibatnya, seluruh email reminder mitigation
-  tidak terkirim ke pengguna.
+  The database used is PostgreSQL, but the query in the
+  cron job uses the DATE_FORMAT() function, which is MySQL
+  syntax. In PostgreSQL, the valid function is TO_CHAR().
+  Consequently, all mitigation reminder emails fail to send.
 
 Impact           :
-  Seluruh PIC tidak menerima notifikasi reminder. Risk Owner
-  tidak aware bahwa ada mitigasi yang belum diupdate. Flagging
-  tetap merah tanpa ada pengingat otomatis, berpotensi
-  menyebabkan compliance gap pada laporan risiko.
+  All PICs do not receive reminder notifications. Risk Owners
+  are unaware of pending mitigation updates. Flags remain red
+  with no automated reminders, potentially causing compliance
+  gaps in risk reporting.
 
 Attachments      : server_error_log_cron_46196.txt
 Notes            :
-  - Ditemukan juga error serupa pada cron lain di batch yang
-    sama (mail-earlywarning-notif, mail-riskresidual-reminder).
-  - Fix: ganti DATE_FORMAT(col, '%Y-%m') menjadi
-    TO_CHAR(col, 'YYYY-MM') pada semua query cron.
-  - Ref internal tester: "test by irf 11:13" pada sheet ERM V3.</code></pre>
+  - Found similar errors in other cron jobs within the same
+    batch (mail-earlywarning-notif, mail-riskresidual-reminder).
+  - Fix: replace DATE_FORMAT(col, '%Y-%m') with
+    TO_CHAR(col, 'YYYY-MM') in all cron queries.
+  - Internal tester ref: "test by irf 11:13" on ERM V3 sheet.</code></pre>
         </section>
         
     </div>

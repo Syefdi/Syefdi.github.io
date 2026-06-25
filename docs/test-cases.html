@@ -49,7 +49,7 @@
     </a>
     
     <header class="mb-12 border-b border-border-slate-700 pb-8">
-        <h1 class="text-3xl md:text-4xl font-bold text-on-surface mb-4">Test Case Format & Contoh</h1>
+        <h1 class="text-3xl md:text-4xl font-bold text-on-surface mb-4">Test Case Format & Examples</h1>
         <div class="flex flex-col gap-2 font-mono text-sm text-primary">
             <p>Project: ERM (Enterprise Risk Management) Revamp V3 & CRMX</p>
             <p>Tester: Syefdi Fasmawi Syaban</p>
@@ -58,7 +58,7 @@
 
     <div class="space-y-12">
         <section>
-            <h2 class="text-2xl font-bold text-on-surface mb-4">Template Test Case</h2>
+            <h2 class="text-2xl font-bold text-on-surface mb-4">Test Case Template</h2>
 <pre><code>Test ID          :
 Scenario         :
 Module           :
@@ -76,27 +76,27 @@ Date             :</code></pre>
         </section>
 
         <section>
-            <h2 class="text-2xl font-bold text-on-surface mb-6">Contoh Implementasi Test Case</h2>
+            <h2 class="text-2xl font-bold text-on-surface mb-6">Test Case Implementation Examples</h2>
 
             <!-- TC 1 -->
             <div class="tc-card">
-                <div class="tc-header text-secondary"><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> TC-001 - Positive Case: Risk Input Berhasil Disimpan</div>
+                <div class="tc-header text-secondary"><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> TC-001 - Positive Case: Risk Input Successfully Saved</div>
                 <table>
                     <tbody>
                         <tr><th>Test ID</th><td>TC-ERM-RI-001</td></tr>
-                        <tr><th>Scenario</th><td>Risk berhasil dibuat dan masuk ke tab Need Follow Up</td></tr>
+                        <tr><th>Scenario</th><td>Risk successfully created and moved to Need Follow Up tab</td></tr>
                         <tr><th>Module</th><td>Risk Input - BAU</td></tr>
-                        <tr><th>Pre-condition</th><td>User sudah login sebagai Risk Owner dengan reference aktif. Current control evaluation tersedia.</td></tr>
+                        <tr><th>Pre-condition</th><td>User is logged in as Risk Owner with active reference. Current control evaluation is available.</td></tr>
                         <tr><th>Test Steps</th><td>
                             <ol class="list-decimal pl-5 space-y-1">
-                                <li>Klik menu Risk Input.</li>
-                                <li>Isi semua field wajib: Risk Description, Inherent Risk (Likelihood + Severity), Current Control Evaluation = "Require to Improve", Action = "Reduce", Residual Risk Plan, Objective, BSC.</li>
-                                <li>Tambahkan 1 mitigasi dengan PIC valid, Due Date, dan Periode.</li>
-                                <li>Klik Save.</li>
+                                <li>Click Risk Input menu.</li>
+                                <li>Fill all mandatory fields: Risk Description, Inherent Risk (Likelihood + Severity), Current Control Evaluation = "Require to Improve", Action = "Reduce", Residual Risk Plan, Objective, BSC.</li>
+                                <li>Add 1 mitigation with a valid PIC, Due Date, and Period.</li>
+                                <li>Click Save.</li>
                             </ol>
                         </td></tr>
                         <tr><th>Test Data</th><td>Risk Owner: dewichatarina, PIC: rini.hervina, Likelihood: Possible, Severity: Major, Action: Reduce</td></tr>
-                        <tr><th>Expected Result</th><td>Risk tersimpan dengan Risk Number format RN-BU-2026-XXX. Data muncul di tab Need Follow Up. Risk Owner menerima email notifikasi.</td></tr>
+                        <tr><th>Expected Result</th><td>Risk is saved with Risk Number format RN-BU-2026-XXX. Data appears in Need Follow Up tab. Risk Owner receives an email notification.</td></tr>
                         <tr><th>Status</th><td class="status-pass">PASSED</td></tr>
                     </tbody>
                 </table>
@@ -104,23 +104,23 @@ Date             :</code></pre>
 
             <!-- TC 2 -->
             <div class="tc-card">
-                <div class="tc-header text-error"><span class="material-symbols-outlined" aria-hidden="true">cancel</span> TC-002 - Negative Case: Validasi Mandatory Mitigasi</div>
+                <div class="tc-header text-error"><span class="material-symbols-outlined" aria-hidden="true">cancel</span> TC-002 - Negative Case: Mitigation Mandatory Validation</div>
                 <table>
                     <tbody>
                         <tr><th>Test ID</th><td>TC-ERM-RI-002</td></tr>
-                        <tr><th>Scenario</th><td>Sistem menolak penyimpanan risk yang wajib mitigasi tetapi field mitigasi dikosongkan</td></tr>
+                        <tr><th>Scenario</th><td>System rejects saving a risk that requires mitigation but mitigation fields are left empty</td></tr>
                         <tr><th>Module</th><td>Risk Input - BAU</td></tr>
-                        <tr><th>Pre-condition</th><td>User login sebagai Risk Owner. Current control evaluation tersedia.</td></tr>
+                        <tr><th>Pre-condition</th><td>User logged in as Risk Owner. Current control evaluation is available.</td></tr>
                         <tr><th>Test Steps</th><td>
                             <ol class="list-decimal pl-5 space-y-1">
-                                <li>Buka menu Risk Input.</li>
-                                <li>Isi semua field kecuali mitigasi.</li>
-                                <li>Set Action = "Reduce" (bukan Adequate/Avoid).</li>
-                                <li>Klik Save tanpa menambahkan mitigasi.</li>
+                                <li>Open Risk Input menu.</li>
+                                <li>Fill all fields except mitigation.</li>
+                                <li>Set Action = "Reduce" (not Adequate/Avoid).</li>
+                                <li>Click Save without adding any mitigation.</li>
                             </ol>
                         </td></tr>
-                        <tr><th>Test Data</th><td>Action: Reduce, Mitigasi: kosong</td></tr>
-                        <tr><th>Expected Result</th><td>Sistem menampilkan validasi error. Risk tidak tersimpan.</td></tr>
+                        <tr><th>Test Data</th><td>Action: Reduce, Mitigation: empty</td></tr>
+                        <tr><th>Expected Result</th><td>System displays a validation error. Risk is not saved.</td></tr>
                         <tr><th>Status</th><td class="status-pass">PASSED</td></tr>
                     </tbody>
                 </table>
@@ -132,19 +132,19 @@ Date             :</code></pre>
                 <table>
                     <tbody>
                         <tr><th>Test ID</th><td>TC-ERM-MIT-001</td></tr>
-                        <tr><th>Scenario</th><td>Mitigasi dengan status Cancelled tidak bisa diedit oleh PIC</td></tr>
+                        <tr><th>Scenario</th><td>Mitigation with Cancelled status cannot be edited by PIC</td></tr>
                         <tr><th>Module</th><td>Mitigation Update Required - PIC</td></tr>
-                        <tr><th>Pre-condition</th><td>Terdapat risk dengan mitigasi yang sudah berstatus Cancelled. User login sebagai PIC mitigasi tersebut.</td></tr>
+                        <tr><th>Pre-condition</th><td>A risk exists with a mitigation already marked as Cancelled. User logs in as the PIC for that mitigation.</td></tr>
                         <tr><th>Test Steps</th><td>
                             <ol class="list-decimal pl-5 space-y-1">
-                                <li>Login sebagai PIC (contoh: rini.hervina).</li>
-                                <li>Buka menu Mitigation Update Required.</li>
-                                <li>Cari risk dengan mitigasi Cancelled (ref: RN-BU-2026-611).</li>
-                                <li>Coba edit field mitigasi yang Cancelled tersebut.</li>
+                                <li>Log in as PIC (e.g., rini.hervina).</li>
+                                <li>Open Mitigation Update Required menu.</li>
+                                <li>Search for the risk with the Cancelled mitigation (ref: RN-BU-2026-611).</li>
+                                <li>Attempt to edit the Cancelled mitigation fields.</li>
                             </ol>
                         </td></tr>
-                        <tr><th>Test Data</th><td>Risk Number: RN-BU-2026-611, Status mitigasi: Cancelled</td></tr>
-                        <tr><th>Expected Result</th><td>Seluruh kolom mitigasi yang Cancelled ter-block/disabled. PIC tidak bisa melakukan perubahan apapun.</td></tr>
+                        <tr><th>Test Data</th><td>Risk Number: RN-BU-2026-611, Mitigation status: Cancelled</td></tr>
+                        <tr><th>Expected Result</th><td>All Cancelled mitigation columns are blocked/disabled. PIC cannot make any changes.</td></tr>
                         <tr><th>Status</th><td class="status-pass">PASSED</td></tr>
                     </tbody>
                 </table>
@@ -152,24 +152,24 @@ Date             :</code></pre>
 
             <!-- TC 4 -->
             <div class="tc-card">
-                <div class="tc-header text-primary"><span class="material-symbols-outlined" aria-hidden="true">warning</span> TC-004 - Edge Case: Prorate Plan Mitigasi</div>
+                <div class="tc-header text-primary"><span class="material-symbols-outlined" aria-hidden="true">warning</span> TC-004 - Edge Case: Prorate Mitigation Plan</div>
                 <table>
                     <tbody>
                         <tr><th>Test ID</th><td>TC-ERM-MIT-002</td></tr>
-                        <tr><th>Scenario</th><td>Perhitungan prorate actual mitigation progress tidak lagi menghitung mitigasi yang sudah di-cancel</td></tr>
+                        <tr><th>Scenario</th><td>Prorated actual mitigation progress calculation no longer includes cancelled mitigations</td></tr>
                         <tr><th>Module</th><td>Risk Register - Registered / Mitigation Progress</td></tr>
-                        <tr><th>Pre-condition</th><td>Terdapat risk BAU dengan lebih dari satu mitigasi aktif. Salah satu mitigasi sudah di-cancel oleh Risk Owner. PIC mitigasi lain sudah melakukan update progress.</td></tr>
+                        <tr><th>Pre-condition</th><td>A BAU risk exists with multiple active mitigations. One mitigation has been cancelled by the Risk Owner. The PIC for another mitigation has already updated progress.</td></tr>
                         <tr><th>Test Steps</th><td>
                             <ol class="list-decimal pl-5 space-y-1">
-                                <li>Login sebagai Risk Owner.</li>
-                                <li>Cancel salah satu mitigasi pada risk RN-BU-2026-623.</li>
-                                <li>Login sebagai PIC mitigasi yang masih aktif.</li>
-                                <li>Update progress mitigasi aktif tersebut.</li>
-                                <li>Cek kolom Actual Cumulative Average di RR dan Dashboard L1/L2.</li>
+                                <li>Log in as Risk Owner.</li>
+                                <li>Cancel one mitigation on risk RN-BU-2026-623.</li>
+                                <li>Log in as the PIC for the active mitigation.</li>
+                                <li>Update progress for the active mitigation.</li>
+                                <li>Check the Actual Cumulative Average column in RR and Dashboard L1/L2.</li>
                             </ol>
                         </td></tr>
-                        <tr><th>Test Data</th><td>Risk: RN-BU-2026-623, Jumlah mitigasi: 2, Status: 1 aktif - 1 cancelled</td></tr>
-                        <tr><th>Expected Result</th><td>Perhitungan prorate actual hanya menghitung mitigasi aktif. Mitigasi Cancelled tidak ikut sebagai pembagi. Nilai average di RR dan Dashboard konsisten.</td></tr>
+                        <tr><th>Test Data</th><td>Risk: RN-BU-2026-623, Mitigation count: 2, Status: 1 active - 1 cancelled</td></tr>
+                        <tr><th>Expected Result</th><td>Prorated actual calculation only includes active mitigations. Cancelled mitigation is excluded from the divisor. Average values in RR and Dashboard remain consistent.</td></tr>
                         <tr><th>Status</th><td class="status-pass">PASSED</td></tr>
                     </tbody>
                 </table>

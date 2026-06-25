@@ -53,7 +53,7 @@
     </header>
 
     <div class="space-y-8">
-        <p class="text-on-surface-variant leading-relaxed">Modul-modul krusial yang diambil dari happy path utama sistem ERM V3.</p>
+        <p class="text-on-surface-variant leading-relaxed">Critical modules tested across the primary happy path of the ERM V3 system.</p>
         <div class="overflow-x-auto rounded-xl border border-border-slate-700">
             <table>
                 <thead>
@@ -65,18 +65,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td>Login</td><td>User input valid credentials dan submit</td><td>User berhasil login, diarahkan ke Home sesuai role (BAU/Project)</td><td><span class="status-pass">PASSED</span></td></tr>
-                    <tr><td>Login</td><td>User memilih mode BAU atau Project setelah login</td><td>Mode tersimpan, menu yang ditampilkan sesuai mode yang dipilih</td><td><span class="status-pass">PASSED</span></td></tr>
-                    <tr><td>Risk Input</td><td>User mengisi form Risk Input lengkap (risk owner, inherent risk, current control, action, mitigasi) dan save</td><td>Risk tersimpan ke tab Need Follow Up, risk owner menerima email notifikasi</td><td><span class="status-pass">PASSED</span></td></tr>
-                    <tr><td>Risk Register - Need Follow Up</td><td>User membuka tab Need Follow Up, melengkapi data, dan save ke Registered</td><td>Risk berpindah ke tab Registered, PIC menerima email notifikasi</td><td><span class="status-pass">PASSED</span></td></tr>
-                    <tr><td>Risk Register - Registered</td><td>User membuka detail risk di tab Registered</td><td>Semua informasi tampil lengkap: risk number, flagging, plan/actual progress, mitigation info</td><td><span class="status-pass">PASSED</span></td></tr>
-                    <tr><td>Mitigation Update (PIC)</td><td>PIC login, membuka Mitigation Update Required, mengisi progress, dan save</td><td>Progress tersimpan, email notifikasi terkirim ke PIC dan Risk Owner</td><td><span class="status-pass">PASSED</span></td></tr>
-                    <tr><td>Mitigation Update (Risk Owner)</td><td>Risk Owner mengisi Residual Risk Actual dan save</td><td>Flag berubah dari merah ke hijau jika kondisi terpenuhi</td><td><span class="status-pass">PASSED</span></td></tr>
-                    <tr><td>Home - Total Counter</td><td>User membuka Home</td><td>Counter Registered, Need Follow Up, Deleted, dan Inactive menampilkan angka yang akurat dan konsisten dengan data di tab RR</td><td><span class="status-pass">PASSED</span></td></tr>
-                    <tr><td>Dashboard Level 1</td><td>User membuka Dashboard L1</td><td>Chart Top Risk dan mitigation progress plan/actual muncul sesuai bulan berjalan</td><td><span class="status-pass">PASSED</span></td></tr>
-                    <tr><td>Dashboard Level 2</td><td>User membuka Dashboard L2 dan melakukan filter</td><td>Data risk detail dan risk mapping ter-filter sesuai pilihan, grouping N/A ter-hitung</td><td><span class="status-pass">PASSED</span></td></tr>
-                    <tr><td>Email Notifikasi - Request Change</td><td>PIC mengajukan request change (due date/pic/mitigasi)</td><td>Risk Owner menerima email dengan link yang mengarah ke menu Mitigation Update Required</td><td><span class="status-pass">PASSED</span></td></tr>
-                    <tr><td>Flagging</td><td>Risk dengan semua mitigasi sudah diupdate oleh PIC dan Residual Risk Actual sudah diisi Risk Owner</td><td>Flag berubah hijau</td><td><span class="status-pass">PASSED</span></td></tr>
+                    <tr><td>Login</td><td>User inputs valid credentials and submits</td><td>User successfully logs in, directed to Home based on role (BAU/Project)</td><td><span class="status-pass">PASSED</span></td></tr>
+                    <tr><td>Login</td><td>User selects BAU or Project mode post-login</td><td>Mode is saved, displayed menus match the selected mode</td><td><span class="status-pass">PASSED</span></td></tr>
+                    <tr><td>Risk Input</td><td>User fills out complete Risk Input form (risk owner, inherent risk, current control, action, mitigation) and saves</td><td>Risk is saved to Need Follow Up tab, risk owner receives email notification</td><td><span class="status-pass">PASSED</span></td></tr>
+                    <tr><td>Risk Register - Need Follow Up</td><td>User opens Need Follow Up tab, completes data, and saves to Registered</td><td>Risk moves to Registered tab, PIC receives email notification</td><td><span class="status-pass">PASSED</span></td></tr>
+                    <tr><td>Risk Register - Registered</td><td>User opens risk details in Registered tab</td><td>All information displayed accurately: risk number, flagging, plan/actual progress, mitigation info</td><td><span class="status-pass">PASSED</span></td></tr>
+                    <tr><td>Mitigation Update (PIC)</td><td>PIC logs in, opens Mitigation Update Required, fills progress, and saves</td><td>Progress saved, email notification sent to PIC and Risk Owner</td><td><span class="status-pass">PASSED</span></td></tr>
+                    <tr><td>Mitigation Update (Risk Owner)</td><td>Risk Owner fills Residual Risk Actual and saves</td><td>Flag changes from red to green if conditions are met</td><td><span class="status-pass">PASSED</span></td></tr>
+                    <tr><td>Home - Total Counter</td><td>User opens Home</td><td>Registered, Need Follow Up, Deleted, and Inactive counters display accurate numbers consistent with RR tab data</td><td><span class="status-pass">PASSED</span></td></tr>
+                    <tr><td>Dashboard Level 1</td><td>User opens Dashboard L1</td><td>Top Risk chart and mitigation progress plan/actual appear according to the current month</td><td><span class="status-pass">PASSED</span></td></tr>
+                    <tr><td>Dashboard Level 2</td><td>User opens Dashboard L2 and applies filter</td><td>Risk details and risk mapping data filtered correctly, N/A grouping is calculated</td><td><span class="status-pass">PASSED</span></td></tr>
+                    <tr><td>Email Notifikasi - Request Change</td><td>PIC submits request change (due date/pic/mitigation)</td><td>Risk Owner receives email with link directing to Mitigation Update Required menu</td><td><span class="status-pass">PASSED</span></td></tr>
+                    <tr><td>Flagging</td><td>Risk with all mitigations updated by PIC and Residual Risk Actual filled by Risk Owner</td><td>Flag turns green</td><td><span class="status-pass">PASSED</span></td></tr>
                 </tbody>
             </table>
         </div>
